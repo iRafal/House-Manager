@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/edge_big_minus">
+
+    <TextView
+        android:id="@+id/tv_measurement_screen_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginBottom="@dimen/edge_huge_minus"
+        android:layout_marginRight="@dimen/edge_big_plus"
+        android:layout_marginTop="@dimen/edge_big_minus"
+        android:text="@string/measurement_time_limits"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/blue_light" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/edge_above"
+        android:orientation="horizontal"
+        android:weightSum="1.0">
+
+        <TextView
+            android:id="@+id/tv_first_date_select_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/please_select_first_date"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/cb_single_date_selector"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/single_date" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_from_date_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/edge_above"
+        android:drawableRight="@drawable/spinner_custom_selector"
+        android:gravity="center|left"
+        android:text="@string/from_date"
+        android:textColor="@color/black" />
+
+    <include
+        layout="@layout/line_view_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/edge_large_most_plus"
+        android:layout_marginRight="@dimen/edge_big_plus" />
+
+    <TextView
+        android:id="@+id/tv_second_date_select_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/edge_above"
+        android:gravity="left"
+        android:text="@string/please_select_second_date"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_to_date_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/edge_above"
+        android:drawableRight="@drawable/spinner_custom_selector"
+        android:gravity="center|left"
+        android:text="@string/to_date"
+        android:textColor="@color/black" />
+
+    <include
+        layout="@layout/line_view_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/edge_large_most_plus"
+        android:layout_marginRight="@dimen/edge_big_plus" />
+
+    <TextView
+        android:id="@+id/tv_first_time_select_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/edge_above"
+        android:layout_marginTop="@dimen/edge_normal_plus"
+        android:gravity="left"
+        android:text="@string/please_select_first_time"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_from_time_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/edge_above"
+        android:drawableRight="@drawable/spinner_custom_selector"
+        android:gravity="center|left"
+        android:text="@string/from_time"
+        android:textColor="@color/black" />
+
+    <include
+        layout="@layout/line_view_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/edge_big_plus" />
+
+    <TextView
+        android:id="@+id/tv_from_time_select_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/edge_above"
+        android:layout_marginTop="@dimen/edge_large_most_plus"
+        android:gravity="left"
+        android:text="@string/please_select_second_time"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_to_time_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/edge_above"
+        android:drawableRight="@drawable/spinner_custom_selector"
+        android:gravity="center|left"
+        android:text="@string/to_time"
+        android:textColor="@color/black" />
+
+    <include
+        layout="@layout/line_view_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/edge_big_plus" />
+</LinearLayout>

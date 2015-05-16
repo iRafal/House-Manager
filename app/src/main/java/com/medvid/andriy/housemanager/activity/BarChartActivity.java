@@ -34,9 +34,6 @@ public class BarChartActivity extends BaseActivity implements SeekBar.OnSeekBarC
         setContentView(R.layout.animated_bar_chart_activity_layout);
 
         ButterKnife.inject(this);
-
-        initSlidr();
-
         initView();
     }
 
@@ -101,10 +98,6 @@ public class BarChartActivity extends BaseActivity implements SeekBar.OnSeekBarC
 
         bar_chart_view.setData(data);
         //bar_chart_view.invalidate();
-    }
-
-    private void initSlidr() {
-        SlidrHelper.initSlidr(this);
     }
 
     private void saveToGallery() {
