@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<io.codetail.widget.RevealFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_dark">
+
+    <FrameLayout
+        android:id="@+id/fl_animation_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.zzt.inbox.widget.InboxBackgroundScrollView
+            android:id="@+id/inboxBackgroundScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:overScrollMode="always"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_user_name_settings_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:drawableRight="@drawable/ic_go"
+                    android:gravity="left"
+                    android:padding="@dimen/edge_big"
+                    android:text="@string/user_name"
+                    android:textSize="@dimen/text_normal_medium"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_user_password_settings_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:drawableRight="@drawable/ic_go"
+                    android:gravity="left"
+                    android:padding="@dimen/edge_big"
+                    android:textSize="@dimen/text_normal_medium"
+                    android:text="@string/change_user_password"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="1.0">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.2" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.2">
+
+                        <Button
+                            android:id="@+id/btn_sign_out"
+                            style="@style/TextViewSettingsTitleStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@null"
+                            android:padding="@dimen/edge_above_minus"
+                            android:text="@string/sign_out" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.6" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.zzt.inbox.widget.InboxBackgroundScrollView>
+
+        <com.zzt.inbox.widget.InboxLayoutScrollView
+            android:id="@+id/inboxlayout_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible">
+                <include layout="@layout/settings_user_name" />
+        </com.zzt.inbox.widget.InboxLayoutScrollView>
+
+        <com.zzt.inbox.widget.InboxLayoutScrollView
+            android:id="@+id/inboxlayout_user_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible">
+
+            <include layout="@layout/settings_user_password" />
+        </com.zzt.inbox.widget.InboxLayoutScrollView>
+
+    </FrameLayout>
+</io.codetail.widget.RevealFrameLayout>

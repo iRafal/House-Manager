@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.skyfishjy.library.RippleBackground
+            android:id="@+id/rb_ripple_microphone_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:rb_color="#0099CC"
+            app:rb_duration="3000"
+            app:rb_radius="32dp"
+            app:rb_rippleAmount="6"
+            app:rb_scale="6">
+
+            <ImageView
+                android:id="@+id/iv_center_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_microphone_gray" />
+        </com.skyfishjy.library.RippleBackground>
+
+        <com.melnykov.fab.FloatingActionButton
+            android:id="@+id/floating_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="@dimen/edge_large"
+            android:src="@drawable/ic_lockscreen_forgotpassword_normal"
+            fab:fab_colorNormal="@color/red"
+            fab:fab_colorPressed="@color/green_dark"
+            fab:fab_colorRipple="@color/gray" />
+
+        <TextView
+            android:id="@+id/tv_command_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/witing_for_command"
+            android:textColor="@color/black"
+            android:background="@null"
+            android:textSize="@dimen/text_large"
+            android:padding="@dimen/edge_above"
+            android:gravity="center"
+            android:visibility="invisible"/>
+
+    </FrameLayout>
+
+</LinearLayout>

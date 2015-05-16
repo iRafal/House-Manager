@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.medvid.andriy.housemanager">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/home_manager_ic"
+        android:label="@string/app_name"
+        android:theme="@style/ActionBarTheme">
+
+        <activity
+            android:name=".activity.SplashActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/NoActionBarTheme"
+            android:windowSoftInputMode="stateHidden" >
+
+        </activity>
+
+        <activity
+            android:name=".activity.TutorialActivity"
+            android:label="@string/app_name"
+            android:noHistory="true"
+            android:theme="@style/NoActionBarTheme" />
+
+        <activity
+            android:name=".activity.EntryActivity"
+            android:label="@string/entry_screen"
+            android:theme="@style/EntryScreenTheme" />
+
+        <activity
+            android:name=".activity.SignInActivity"
+            android:label="@string/sign_in"
+            android:noHistory="true"
+            android:theme="@style/SignInAndUpTheme"
+            android:parentActivityName=".activity.EntryActivity"/>
+
+        <activity
+            android:name=".activity.SignUpActivity"
+            android:label="@string/sign_up"
+            android:noHistory="true"
+            android:theme="@style/SignInAndUpTheme"
+            android:parentActivityName=".activity.EntryActivity"/>
+
+        <activity
+            android:name=".activity.DeviceActivity"
+            android:label="@string/device_info"
+            android:theme="@style/DeviceScreenTheme"
+            android:parentActivityName=".activity.MainActivity" />
+
+        <activity
+            android:name=".activity.MeasurementStatisticActivity"
+            android:label="@string/measurement_statistic"
+            android:theme="@style/DeviceScreenTheme"
+            android:parentActivityName=".activity.DeviceActivity" />
+
+        <activity
+            android:name=".activity.BarChartActivity"
+            android:label="@string/bar_chart"
+            android:theme="@style/BarChartScreenTheme"
+            android:parentActivityName=".activity.MeasurementStatisticActivity" />
+
+        <activity
+            android:name=".activity.LineChartActivity"
+            android:label="@string/line_chart"
+            android:theme="@style/LineChartScreenTheme"
+            android:parentActivityName=".activity.MeasurementStatisticActivity" >
+        </activity>
+
+        <activity
+            android:name=".activity.VoiceControlInfoActivity"
+            android:label="@string/voice_control_info"
+            android:theme="@style/VoiceControlInfoScreenTheme"
+            android:parentActivityName=".activity.MainActivity" />
+    </application>
+
+</manifest>

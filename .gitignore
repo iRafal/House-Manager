@@ -1,0 +1,14 @@
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/.idea
+/gradle
+HouseManager.iml
+gradle.properties
+gradlew
+gradlew.bat
+InboxLayoutLibrary/InboxLayoutLibrary.iml
+InboxLayoutLibrary/library.iml

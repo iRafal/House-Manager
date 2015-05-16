@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:weightSum="1.0"
+    tools:context=".EntryActivity">
+   <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/home_manager"
+        android:layout_gravity="center"
+        android:layout_weight="0.6"/>
+
+    <TextView
+        android:id="@+id/tv_sign_in_action"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:gravity="center"
+        android:text="@string/sign_in"
+        android:textSize="@dimen/text_huge"
+        android:textStyle="bold"
+        android:background="@color/green_dark"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/tv_sign_up_action"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:gravity="center"
+        android:text="@string/sign_up"
+        android:textSize="@dimen/text_huge"
+        android:textStyle="bold"
+        android:background="@color/orange"
+        android:textColor="@color/white"/>
+</LinearLayout>

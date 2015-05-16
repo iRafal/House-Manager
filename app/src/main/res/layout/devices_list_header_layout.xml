@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.medvid.andriy.housemanager.views.DrawableTouchEditText xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/et_search_header"
+    style="@style/EditText_Style"
+    android:drawableRight="@drawable/ic_clear_search_api_holo_light"
+    android:hint="@string/search_devices" />

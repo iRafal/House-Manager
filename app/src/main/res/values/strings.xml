@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">HouseManager</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="devices">Devices</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+
+    <string name="empty_str"></string>
+    <string name="navigation">Navigation</string>
+    <string name="search_devices">Search devices..</string>
+    <string name="sign_out">Sign out</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="new_user_name">New user name</string>
+    <string name="user_name">User name</string>
+    <string name="new_password">New password</string>
+    <string name="device_preferences">Device preferences</string>
+    <string name="voice_control">Voice Control</string>
+    <string name="entry_screen">Entry Screen</string>
+    <string name="password">Password</string>
+    <string name="on_back_tap_message">Please tap BACK again to exit</string>
+    <string name="made_by_string">Made by VI year study student - Andriy Medvid</string>
+    <string name="department_string">Department of Computer Aided Design</string>
+    <string name="baccalaureate_theme_top">Baccalaureate work theme</string>
+    <string name="baccalaureate_theme">Software development subsystem of intelligent tools house management</string>
+    <string name="android_house_manager">Android House Manager</string>
+    <string name="avatar">Avatar</string>
+    <string name="choose_avatar">Choose Avatar</string>
+    <string name="take_a_picture">Take a picture</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="change_user_name">Change User Name</string>
+    <string name="change_user_password">Change user password</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="cancel">Cancel</string>
+    <string name="signout_dialog_message">Are you sure you want to close this session?</string>
+    <string name="device_info">Device info</string>
+    <string name="Update">Update</string>
+    <string name="sync_dialog_message">Updating devices list</string>
+    <string name="sync_dialog_title">Synchronisation</string>
+    <string name="switched_on">Switched On</string>
+    <string name="switched_off">Switched Off</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="witing_for_command">Waiting for command...</string>
+    <string name="voice_control_info">Voice control info</string>
+    <string name="voice_control_info_title">Use device microphone for managing devices by commands in the list below.</string>
+    <string name="swipe_up_down_to_close">Swipe Up/Down To Close</string>
+    <string name="measurement_statistic">Measurement statistic</string>
+    <string name="measurement_time_limits">Measurement time limits</string>
+    <string name="please_select_first_date">Please select first date</string>
+    <string name="single_date">Single Date</string>
+    <string name="from_date">From date</string>
+    <string name="to_date">To date</string>
+    <string name="to_time">To time</string>
+    <string name="from_time">From time</string>
+    <string name="please_select_first_time">Please select First time</string>
+    <string name="single_time">Single Time</string>
+    <string name="please_select_second_date">Please select second date</string>
+    <string name="please_select_second_time">Please select Second time</string>
+    <string name="bar_chart">BarChart</string>
+    <string name="line_chart">Line Chart</string>
+
+</resources>
+
