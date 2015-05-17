@@ -190,9 +190,8 @@ public class MeasurementStatisticActivity extends BaseActivity implements View.O
                     tv_from_time_selector.setText(time);
                 } else {
                     tv_to_time_selector.setText(time);
-
-                    super.onPositiveActionClicked(fragment);
                 }
+                super.onPositiveActionClicked(fragment);
             }
 
             @Override

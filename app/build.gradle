@@ -77,6 +77,6 @@ dependencies {
     //MPAndroidChart
     compile 'com.github.PhilJay:MPAndroidChart:v2.1.0'
 
-    //material vidgets
+    //material widgets
     compile 'com.github.rey5137:material:1.1.0'
 }
