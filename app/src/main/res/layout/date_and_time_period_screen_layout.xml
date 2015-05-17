@@ -52,6 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/edge_above"
+        android:layout_marginLeft="@dimen/edge_normal_medium"
         android:drawableRight="@drawable/spinner_custom_selector"
         android:gravity="center|left"
         android:text="@string/from_date"
@@ -80,6 +81,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/edge_above"
+        android:layout_marginLeft="@dimen/edge_normal_medium"
         android:drawableRight="@drawable/spinner_custom_selector"
         android:gravity="center|left"
         android:text="@string/to_date"
@@ -109,6 +111,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/edge_above"
+        android:layout_marginLeft="@dimen/edge_normal_medium"
         android:drawableRight="@drawable/spinner_custom_selector"
         android:gravity="center|left"
         android:text="@string/from_time"
@@ -139,6 +142,7 @@
         android:layout_marginRight="@dimen/edge_above"
         android:drawableRight="@drawable/spinner_custom_selector"
         android:gravity="center|left"
+        android:layout_marginLeft="@dimen/edge_normal_medium"
         android:text="@string/to_time"
         android:textColor="@color/black" />
 
