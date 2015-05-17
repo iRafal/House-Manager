@@ -1,6 +1,8 @@
 package com.medvid.andriy.housemanager.activity;
 
 import android.app.ProgressDialog;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -13,6 +15,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -197,8 +200,6 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
         }
 
         return false;
-
-        //return super.onOptionsItemSelected(item);
     }
 
     private ScreenShotable replaceFragment(ScreenShotable screenShotable, int topPosition) {
@@ -229,8 +230,6 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
-
         return true;
     }
 

@@ -18,6 +18,12 @@ public class DevicesRoom {
         this.mDevicesList = new ArrayList<>(devicesList);
     }
 
+    public DevicesRoom(DevicesRoom devicesRoom) {
+        this.mRoomId = devicesRoom.getRoomId();
+        this.mRoomName = devicesRoom.getRoomName();
+        this.mDevicesList = new ArrayList<>(devicesRoom.getDevicesList());
+    }
+
     public DevicesRoom() {
     }
 

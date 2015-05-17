@@ -3,4 +3,10 @@
     android:id="@+id/et_search_header"
     style="@style/EditText_Style"
     android:drawableRight="@drawable/ic_clear_search_api_holo_light"
-    android:hint="@string/search_devices" />
+    android:hint="@string/enter_device_name"
+    android:focusableInTouchMode="true"
+    android:focusable="true">
+
+    <requestFocus></requestFocus>
+
+</com.medvid.andriy.housemanager.views.DrawableTouchEditText>

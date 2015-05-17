@@ -3,6 +3,9 @@ package com.medvid.andriy.housemanager.activity;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
@@ -15,7 +18,6 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.Highlight;
 import com.medvid.andriy.housemanager.R;
-import com.medvid.andriy.housemanager.utils.SlidrHelper;
 
 import java.util.ArrayList;
 
@@ -106,6 +108,33 @@ public class LineChartActivity extends BaseActivity implements OnChartValueSelec
         rightAxis.setTextColor(ColorTemplate.getHoloBlue());
         rightAxis.setAxisMaxValue(200f);
         rightAxis.setDrawGridLines(true);
+    }
+
+    private void saveToGallery() {
+        if (line_chart.saveToGallery(getString(R.string.line_chart)
+                + " " + System.currentTimeMillis(), 50)) {
+            Toast.makeText(this, getString(R.string.saved_to_gallery),
+                    Toast.LENGTH_SHORT).show();
+        } else
+            Toast.makeText(this, getString(R.string.saving_to_gallery_failed), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_chart, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == R.id.action_save_to_gallery)   {
+            saveToGallery();
+            return true;
+        }
+
+        return false;
     }
 
     @Override

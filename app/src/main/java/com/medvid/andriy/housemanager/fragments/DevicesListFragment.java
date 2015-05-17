@@ -2,6 +2,7 @@ package com.medvid.andriy.housemanager.fragments;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -19,10 +20,13 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.medvid.andriy.housemanager.R;
 import com.medvid.andriy.housemanager.activity.DeviceActivity;
@@ -56,9 +60,15 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
         DrawableTouchEditText et_search_header;
 
     @InjectView(R.id.expandable_list_view)
-        AnimatedExpandableListView animatedExpandableListView;
+        AnimatedExpandableListView expandable_list_view;
 
-    private ExpandableListAdapter expandableListAdapter;
+    @InjectView(R.id.tv_list_is_empty)
+        TextView tv_list_is_empty;
+
+    @InjectView(R.id.tv_no_matches_found)
+        TextView tv_no_matches_found;
+
+    private ExpandableListAdapter mExpandableListAdapter;
     private Bitmap bitmap;
     private ProgressDialog mProgressDialog = null;
 
@@ -101,8 +111,8 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
         super.onCreateOptionsMenu(menu, inflater);
 
         int syncMenuItemPosition = 0;
-        MenuItem menuItem = menu.getItem(syncMenuItemPosition);
-        menuItem.setVisible(true);
+        MenuItem syncMenuItem = menu.getItem(syncMenuItemPosition);
+        syncMenuItem.setVisible(true);
     }
 
     @Override
@@ -110,11 +120,11 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
 
         int id = item.getItemId();
 
-        if(id == R.id.action_sync)  {
-            showProgressDialog();
-            return true;
+        switch (id) {
+            case R.id.action_sync:
+                showProgressDialog();
+                return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -136,16 +146,17 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
     private void initExpandableList() {
         List<DevicesRoom> devicesRoomList = generateDevicesList();
 
-        expandableListAdapter = new ExpandableListAdapter(mActionBarActivity, devicesRoomList);
-        //animatedExpandableListView.setGroupIndicator(getDrawableFromResource(R.drawable.ic_find_next_holo_light));
-        animatedExpandableListView.setAdapter(expandableListAdapter);
+        mExpandableListAdapter = new ExpandableListAdapter(mActionBarActivity, devicesRoomList, expandable_list_view);
+        //expandable_list_view.setGroupIndicator(getDrawableFromResource(R.drawable.ic_find_next_holo_light));
+        expandable_list_view.setAdapter(mExpandableListAdapter);
+        expandable_list_view.setEmptyView(tv_list_is_empty);
 
-        animatedExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+        expandable_list_view.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
 
-                DevicesRoom devicesRoom = expandableListAdapter.getData().get(groupPosition);
+                DevicesRoom devicesRoom = mExpandableListAdapter.getData().get(groupPosition);
                 Device device = devicesRoom.getDevicesList().get(childPosition);
 
                 startDeviceActivity(device, devicesRoom);
@@ -153,12 +164,12 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
                 return false;
             }
         });
-        animatedExpandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+        expandable_list_view.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                if(parent.isGroupExpanded(groupPosition))   {
+                if (parent.isGroupExpanded(groupPosition)) {
 
-                }   else    {
+                } else {
 
                 }
                 return true;
@@ -166,21 +177,21 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
         });
 
 /*
-        animatedExpandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+        expandable_list_view.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             @Override
             public void onGroupExpand(int groupPosition) {
-                if (animatedExpandableListView.isGroupExpanded(groupPosition)) {
-                    animatedExpandableListView.setGroupIndicator(
+                if (expandable_list_view.isGroupExpanded(groupPosition)) {
+                    expandable_list_view.setGroupIndicator(
                             getDrawableFromResource(R.drawable.ic_find_next_holo_light));
                 }
             }
         });
 
-        animatedExpandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+        expandable_list_view.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
             @Override
             public void onGroupCollapse(int groupPosition) {
-                if (!animatedExpandableListView.isGroupExpanded(groupPosition)) {
-                    animatedExpandableListView.setGroupIndicator(
+                if (!expandable_list_view.isGroupExpanded(groupPosition)) {
+                    expandable_list_view.setGroupIndicator(
                             getDrawableFromResource(R.drawable.ic_find_previous_holo_light));
                 }
             }
@@ -188,17 +199,17 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
 
         // In order to show animations, we need to use a custom click handler
         // for our ExpandableListView.
-        animatedExpandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+        expandable_list_view.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
 
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 // We call collapseGroupWithAnimation(int) and
                 // expandGroupWithAnimation(int) to animate group
                 // expansion/collapse.
-                if (animatedExpandableListView.isGroupExpanded(groupPosition)) {
-                    animatedExpandableListView.collapseGroupWithAnimation(groupPosition);
+                if (expandable_list_view.isGroupExpanded(groupPosition)) {
+                    expandable_list_view.collapseGroupWithAnimation(groupPosition);
                 } else {
-                    animatedExpandableListView.expandGroupWithAnimation(groupPosition);
+                    expandable_list_view.expandGroupWithAnimation(groupPosition);
                 }
                 return true;
             }
@@ -214,8 +225,24 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                //DevicesListFragment.this.mListAdapter.getFilter().filter(cs);
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+
+                boolean isSuccessSearch = mExpandableListAdapter.dataFilter(charSequence.toString());
+                if (!isSuccessSearch) {
+                    if (expandable_list_view.getVisibility() == View.VISIBLE) {
+                        expandable_list_view.setVisibility(View.GONE);
+                    }
+                    if (tv_list_is_empty.getVisibility() == View.VISIBLE) {
+                        tv_list_is_empty.setVisibility(View.GONE);
+                    }
+                } else {
+                    if (expandable_list_view.getVisibility() == View.GONE) {
+                        expandable_list_view.setVisibility(View.VISIBLE);
+                    }
+                    if (tv_list_is_empty.getVisibility() == View.GONE) {
+                        tv_list_is_empty.setVisibility(View.VISIBLE);
+                    }
+                }
             }
 
             @Override
@@ -241,6 +268,7 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
         Device device = null;
         String deviceType = null;
         boolean isDeviceSwitchedOn = false;
+        boolean isDeviceBusy = false;
 
         for (int i = 0; i < 10; ++i) {
 
@@ -253,12 +281,12 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
                 }
 
                 if (j % 2 != 0) {
-                    isDeviceSwitchedOn = false;
+                    isDeviceBusy = isDeviceSwitchedOn = false;
                 } else {
-                    isDeviceSwitchedOn = true;
+                    isDeviceBusy = isDeviceSwitchedOn = true;
                 }
 
-                device = new Device("Device " + j, "Type " + j, deviceType, isDeviceSwitchedOn);
+                device = new Device("Device " + j, deviceType, "Model " + j, isDeviceSwitchedOn, isDeviceBusy);
                 devicesList.add(device);
                 device = null;
             }
@@ -286,6 +314,7 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
         deviceActivityIntent.putExtra(DeviceActivity.EXTRA_DEVICE_MODEL, device.getDeviceModel());
         deviceActivityIntent.putExtra(DeviceActivity.EXTRA_DEVICE_TYPE, device.getDeviceType());
         deviceActivityIntent.putExtra(DeviceActivity.EXTRA_IS_DEVICE_SWITCHED_ON, device.isDeviceSwitchedOn());
+        deviceActivityIntent.putExtra(DeviceActivity.EXTRA_IS_DEVICE_BUSY, device.isDeviceBusy());
 
         deviceActivityIntent.putExtra(DeviceActivity.EXTRA_ROOM_ID, devicesRoom.getRoomId());
         deviceActivityIntent.putExtra(DeviceActivity.EXTRA_ROOM_NAME, devicesRoom.getRoomName());

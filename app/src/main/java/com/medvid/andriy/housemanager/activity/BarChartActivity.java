@@ -1,6 +1,8 @@
 package com.medvid.andriy.housemanager.activity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
@@ -12,7 +14,6 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.medvid.andriy.housemanager.R;
-import com.medvid.andriy.housemanager.utils.SlidrHelper;
 
 import java.util.ArrayList;
 
@@ -101,12 +102,30 @@ public class BarChartActivity extends BaseActivity implements SeekBar.OnSeekBarC
     }
 
     private void saveToGallery() {
-        if (bar_chart_view.saveToGallery("title" + System.currentTimeMillis(), 50)) {
-            Toast.makeText(getApplicationContext(), "Saving SUCCESSFUL!",
+        if (bar_chart_view.saveToGallery(getString(R.string.bar_chart)
+                + " " + System.currentTimeMillis(), 50)) {
+            Toast.makeText(this, getString(R.string.saved_to_gallery),
                     Toast.LENGTH_SHORT).show();
         } else
-            Toast.makeText(getApplicationContext(), "Saving FAILED!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.saving_to_gallery_failed), Toast.LENGTH_SHORT).show();
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_chart, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == R.id.action_save_to_gallery)   {
+            saveToGallery();
+            return true;
+        }
+
+        return false;
     }
 
     @Override

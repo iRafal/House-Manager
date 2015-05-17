@@ -12,12 +12,23 @@ public class Device {
     private String mDeviceModel = null;
     private String mDeviceType = null;
     private boolean mIsDeviceSwitchedOn = false;
+    private boolean mIsDeviceBusy = false;
 
-    public Device(String deviceName, String deviceType, String deviceModel, boolean isDeviceSwitchedOn) {
+    public Device(String deviceName, String deviceType, String deviceModel,
+                  boolean isDeviceSwitchedOn, boolean isDeviceBusy) {
         this.mDeviceName = deviceName;
         this.mDeviceType = deviceType;
         this.mDeviceModel = deviceModel;
         this.mIsDeviceSwitchedOn = isDeviceSwitchedOn;
+        this.mIsDeviceBusy = isDeviceBusy;
+    }
+
+    public Device(Device device) {
+        this.mDeviceName = device.getDeviceName();
+        this.mDeviceType = device.getDeviceType();
+        this.mDeviceModel = device.getDeviceModel();
+        this.mIsDeviceSwitchedOn = device.isDeviceSwitchedOn();
+        this.mIsDeviceBusy = device.isDeviceBusy();
     }
 
     public Device() {
@@ -27,8 +38,10 @@ public class Device {
     public String toString() {
         return "Device{" +
                 "mDeviceName='" + mDeviceName + '\'' +
+                ", mDeviceModel='" + mDeviceModel + '\'' +
                 ", mDeviceType='" + mDeviceType + '\'' +
                 ", mIsDeviceSwitchedOn=" + mIsDeviceSwitchedOn +
+                ", mIsDeviceBusy=" + mIsDeviceBusy +
                 '}';
     }
 
@@ -62,5 +75,13 @@ public class Device {
 
     public void setDeviceModel(String deviceModel) {
         this.mDeviceModel = deviceModel;
+    }
+
+    public boolean isDeviceBusy() {
+        return mIsDeviceBusy;
+    }
+
+    public void setIsDeviceBusy(boolean isDeviceBusy) {
+        this.mIsDeviceBusy = isDeviceBusy;
     }
 }

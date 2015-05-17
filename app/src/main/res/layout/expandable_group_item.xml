@@ -13,8 +13,6 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/black"
-        android:drawableLeft="@drawable/abc_btn_check_material"
-        android:drawablePadding="@dimen/edge_above_medium"
         android:gravity="center" />
 
 </LinearLayout>

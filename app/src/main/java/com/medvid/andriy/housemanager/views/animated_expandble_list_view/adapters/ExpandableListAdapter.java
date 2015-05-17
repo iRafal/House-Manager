@@ -1,14 +1,17 @@
 package com.medvid.andriy.housemanager.views.animated_expandble_list_view.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.medvid.andriy.housemanager.R;
 import com.medvid.andriy.housemanager.dataset.Device;
 import com.medvid.andriy.housemanager.dataset.DevicesRoom;
+import com.medvid.andriy.housemanager.interfaces.ListDataFilter;
 import com.medvid.andriy.housemanager.views.animated_expandble_list_view.widgets.AnimatedExpandableListView;
 
 import java.util.ArrayList;
@@ -20,24 +23,39 @@ import butterknife.InjectView;
 /**
  * Created by Андрій on 5/10/2015.
  */
-public class ExpandableListAdapter extends AnimatedExpandableListView.AnimatedExpandableListAdapter {
+public class ExpandableListAdapter extends AnimatedExpandableListView.AnimatedExpandableListAdapter
+    implements ListDataFilter {
     private LayoutInflater mLayoutInflater;
 
     private List<DevicesRoom> mDevicesRoomsList = null;
+    private List<DevicesRoom> mDevicesRoomsSearchList = null;
     private Context mContext = null;
+    private boolean mIsSearchMode;
+    private boolean mIsCollapsed = true; //Initially all groups are collapsed
+    private boolean mIsExpanded = false;
+    private AnimatedExpandableListView mExpandableListView = null;
+    private boolean mSearchWasFailed = false;
 
     public ExpandableListAdapter(Context context) {
         mLayoutInflater = LayoutInflater.from(context);
     }
 
-    public ExpandableListAdapter(Context context, List<DevicesRoom> devicesRoomList)    {
+    public ExpandableListAdapter(Context context, List<DevicesRoom> devicesRoomList,
+                                 AnimatedExpandableListView expandableListView)    {
         mLayoutInflater = LayoutInflater.from(context);
         this.mDevicesRoomsList = new ArrayList<>(devicesRoomList);
+        this.mDevicesRoomsSearchList = new ArrayList<>(mDevicesRoomsList);
         mContext = context;
+        this.mExpandableListView = expandableListView;
     }
 
     public void setData(List<DevicesRoom> devicesRoomList) {
         this.mDevicesRoomsList = devicesRoomList;
+        if(!mDevicesRoomsSearchList.isEmpty()) {
+            mDevicesRoomsSearchList.clear();
+        }
+
+        this.mDevicesRoomsSearchList.addAll(mDevicesRoomsList);
     }
 
     public List<DevicesRoom> getData()  {
@@ -46,7 +64,7 @@ public class ExpandableListAdapter extends AnimatedExpandableListView.AnimatedEx
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return mDevicesRoomsList.get(groupPosition).getDevicesList().get(childPosition);//items.get(groupPosition).items.get(childPosition);
+        return mDevicesRoomsList.get(groupPosition).getDevicesList().get(childPosition);
     }
 
     @Override
@@ -142,6 +160,67 @@ public class ExpandableListAdapter extends AnimatedExpandableListView.AnimatedEx
     @Override
     public boolean isChildSelectable(int arg0, int arg1) {
         return true;
+    }
+
+    @Override
+    public boolean dataFilter(String searchString) {
+        searchString = searchString.toLowerCase();
+        DevicesRoom deviceRoom = null;
+        boolean addSection = false;
+
+        if(!mDevicesRoomsList.isEmpty()) {
+            mDevicesRoomsList.clear();
+        }
+
+        if (searchString.isEmpty() || searchString.equals("")) {
+            this.mIsSearchMode = false;
+
+            mDevicesRoomsList.addAll(mDevicesRoomsSearchList);
+            super.notifyDataSetChanged();
+            if(mIsExpanded) {
+                for (int i = 0; i < mDevicesRoomsList.size(); ++i) {
+                    mExpandableListView.collapseGroupWithAnimation(i);
+                }
+                mIsCollapsed = true;
+                mIsExpanded = false;
+            }
+
+            return true;
+        } else {
+
+            this.mIsSearchMode = true;
+            boolean isSuccessSearch = false;
+
+            for (DevicesRoom devicesRoom : mDevicesRoomsSearchList) {
+
+                deviceRoom = new DevicesRoom(devicesRoom);
+                deviceRoom.getDevicesList().clear();
+
+                for (Device device : devicesRoom.getDevicesList()) {
+                    if (device.getDeviceName().toLowerCase().contains(searchString)) {
+
+                        deviceRoom.getDevicesList().add(device);
+                        addSection = true;
+                        isSuccessSearch = true;
+                    }
+                }
+                if (addSection) {
+                    mDevicesRoomsList.add(deviceRoom);
+                    deviceRoom = null;
+                    addSection = false;
+                }
+            }
+            mSearchWasFailed = isSuccessSearch;
+            super.notifyDataSetChanged();
+            if(mIsCollapsed && isSuccessSearch || mSearchWasFailed && isSuccessSearch) {
+                for (int i = 0; i < mDevicesRoomsList.size(); ++i) {
+                    mExpandableListView.expandGroup(i);
+                }
+                mIsCollapsed = false;
+                mIsExpanded = true;
+            }
+            return isSuccessSearch;
+        }
     }
 
     class ChildHolder {

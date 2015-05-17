@@ -27,7 +27,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Device model"
+                android:text="@string/model"
                 android:textSize="@dimen/text_medium"
                 android:textStyle="bold" />
 
@@ -71,29 +71,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Device status"
-                android:textSize="@dimen/text_medium"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_device_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/edge_above"
-                android:text="Switched On"
-                android:textSize="@dimen/text_normal_medium" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/edge_normal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Room"
+                android:text="@string/room"
                 android:textSize="@dimen/text_medium"
                 android:textStyle="bold" />
 
@@ -105,6 +83,50 @@
                 android:paddingLeft="@dimen/edge_above"
                 android:text="Room 910"
                 android:textSize="@dimen/text_normal_medium" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/edge_normal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Is Busy"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_device_is_busy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/edge_above"
+                android:text="@string/yes"
+                android:textSize="@dimen/text_normal_medium" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/edge_normal">
+
+            <TextView
+                android:id="@+id/tv_device_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/status"
+                android:textSize="@dimen/text_medium"
+                android:textStyle="bold" />
+
+            <Switch
+                android:id="@+id/switch_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:paddingLeft="@dimen/edge_above"/>
         </TableRow>
 
     </TableLayout>

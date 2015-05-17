@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".BarChartActivity">
+    <item android:id="@+id/action_save_to_gallery"
+        android:title="@string/save_to_gallery"
+        android:orderInCategory="100"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:visible="true"
+        app:showAsAction="ifRoom|withText" />
+</menu>

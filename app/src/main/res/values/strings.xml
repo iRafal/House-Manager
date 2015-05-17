@@ -9,7 +9,7 @@
 
     <string name="empty_str"></string>
     <string name="navigation">Navigation</string>
-    <string name="search_devices">Search devices..</string>
+    <string name="enter_device_name">Enter device name..</string>
     <string name="sign_out">Sign out</string>
     <string name="sign_in">Sign in</string>
     <string name="sign_up">Sign up</string>
@@ -62,6 +62,23 @@
     <string name="please_select_second_time">Please select Second time</string>
     <string name="bar_chart">BarChart</string>
     <string name="line_chart">Line Chart</string>
+    <string name="room">Room</string>
+    <string name="status">Status</string>
+    <string name="model">Model</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="switching_off_device">Switching off device</string>
+    <string name="ok">Ok</string>
+    <string name="device_is_busy_by_another_user">Device is busy by another user</string>
+    <string name="toggle_device_status">Toggle device status</string>
+    <string name="save_to_gallery">Save yo gallery</string>
+    <string name="saved_to_gallery">Chart Saved to Gallery</string>
+    <string name="saving_to_gallery_failed">Saving Chart to Gallery Failed</string>
+    <string name="search">Search</string>
+    <string name="search_empty_message">No matches found</string>
+    <string name="no_devices_found">No devices Found</string>
 
 </resources>
 
