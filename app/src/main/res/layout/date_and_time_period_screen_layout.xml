@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/edge_above"
+        android:layout_marginRight="@dimen/edge_big_minus"
         android:orientation="horizontal"
         android:weightSum="1.0">
 
@@ -34,12 +35,16 @@
             android:textColor="@color/black"
             android:textStyle="bold" />
 
-        <CheckBox
+        <com.rey.material.widget.CheckBox
+            style="@style/Material.Drawable.CheckBox"
             android:id="@+id/cb_single_date_selector"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/single_date" />
+            android:text="@string/single_date"
+            android:gravity="left|center"
+            android:textColor="@color/black"
+            android:paddingLeft="@dimen/edge_normal"/>
     </LinearLayout>
 
     <TextView

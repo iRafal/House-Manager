@@ -47,7 +47,6 @@ public class DrawableTouchEditText extends EditText {
         if(event.getAction() == MotionEvent.ACTION_UP)  {
             if(event.getRawX() >= this.getRight() - this.getTotalPaddingRight()) {
                 DrawableTouchEditText.this.setText("");
-//                return true;
             }
         }   else {
             mInputMethodManager.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT);

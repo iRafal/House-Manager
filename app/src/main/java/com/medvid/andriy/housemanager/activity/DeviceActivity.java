@@ -8,7 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.Switch;
+import com.rey.material.widget.Switch;
 import android.widget.TextView;
 
 import com.medvid.andriy.housemanager.R;
@@ -23,7 +23,7 @@ import butterknife.InjectView;
 /**
  * Created by Андрій on 5/3/2015.
  */
-public class DeviceActivity extends BaseActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
+public class DeviceActivity extends BaseActivity implements View.OnClickListener, Switch.OnCheckedChangeListener {
 
     public static final String EXTRA_DEVICE_NAME = "com.medvid.andriy.housemanager" +
             ".activity.EXTRA_DEVICE_NAME";
@@ -169,7 +169,7 @@ public class DeviceActivity extends BaseActivity implements View.OnClickListener
     }
 
     @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+    public void onCheckedChanged(Switch aSwitch, boolean isChecked) {
 
         if (!mIsScreenInit) {
             showProgressDialog();

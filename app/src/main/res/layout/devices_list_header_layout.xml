@@ -5,8 +5,4 @@
     android:drawableRight="@drawable/ic_clear_search_api_holo_light"
     android:hint="@string/enter_device_name"
     android:focusableInTouchMode="true"
-    android:focusable="true">
-
-    <requestFocus></requestFocus>
-
-</com.medvid.andriy.housemanager.views.DrawableTouchEditText>
+    android:focusable="true"/>

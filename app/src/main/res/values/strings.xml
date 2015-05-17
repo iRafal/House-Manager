@@ -79,6 +79,7 @@
     <string name="search">Search</string>
     <string name="search_empty_message">No matches found</string>
     <string name="no_devices_found">No devices Found</string>
+    <string name="day_and_full_month_name_and_year_date_format">dd MMMM yyyy</string>
 
 </resources>
 

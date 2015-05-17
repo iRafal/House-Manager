@@ -96,7 +96,7 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
         String dialogMessage = mActionBarActivity.getString(R.string.sync_dialog_message);
 
         mProgressDialog = ProgressDialog.show(mActionBarActivity,
-                dialogTitle,dialogMessage, true, true);
+                dialogTitle,dialogMessage , true, true);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -164,7 +164,7 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
                 return false;
             }
         });
-        expandable_list_view.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+       /* expandable_list_view.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
                 if (parent.isGroupExpanded(groupPosition)) {
@@ -174,7 +174,7 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
                 }
                 return true;
             }
-        });
+        });*/
 
 /*
         expandable_list_view.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -221,7 +221,6 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
         et_search_header.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
@@ -247,7 +246,6 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
 
             @Override
             public void afterTextChanged(Editable s) {
-
             }
         });
     }
