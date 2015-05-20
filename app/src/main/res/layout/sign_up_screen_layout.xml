@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_dark_bright"
+    android:background="@color/light_blue_green"
     android:orientation="vertical"
     android:padding="@dimen/edge_large_plus"
     tools:context=".SignUpActivity">
@@ -22,6 +22,7 @@
             android:hint="@string/user_name"
             android:inputType="text"
             android:textColor="@color/white"
+            android:drawableRight="@drawable/arrow_cut_right"
             android:textColorHint="@color/white" />
     </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
@@ -38,6 +39,7 @@
             android:hint="@string/password"
             android:inputType="textPassword"
             android:textColor="@color/white"
+            android:drawableRight="@drawable/arrow_cut_right"
             android:textColorHint="@color/white" />
 
     </com.wrapp.floatlabelededittext.FloatLabeledEditText>
@@ -55,6 +57,7 @@
             android:hint="@string/confirm_password"
             android:inputType="textPassword"
             android:textColor="@color/white"
+            android:drawableRight="@drawable/arrow_cut_right"
             android:textColorHint="@color/white" />
     </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
@@ -68,13 +71,12 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
-            android:background="@android:color/transparent"
+            android:background="@drawable/btn_orange_rounded_rect"
             android:padding="@dimen/edge_above"
             android:text="@string/sign_up"
             android:textColor="@color/white"
             android:textSize="@dimen/text_large_plus"
-            android:textAllCaps="false"
-            android:textStyle="bold" />
+            android:textAllCaps="false"/>
     </RelativeLayout>
 
 </LinearLayout>

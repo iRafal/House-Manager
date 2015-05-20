@@ -32,6 +32,7 @@ import com.medvid.andriy.housemanager.R;
 import com.medvid.andriy.housemanager.activity.DeviceActivity;
 import com.medvid.andriy.housemanager.dataset.Device;
 import com.medvid.andriy.housemanager.dataset.DevicesRoom;
+import com.medvid.andriy.housemanager.utils.DialogUtils;
 import com.medvid.andriy.housemanager.views.DrawableTouchEditText;
 import com.medvid.andriy.housemanager.views.animated_expandble_list_view.adapters.ExpandableListAdapter;
 import com.medvid.andriy.housemanager.views.animated_expandble_list_view.widgets.AnimatedExpandableListView;
@@ -52,6 +53,7 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
 
     private ActionBar mActionBar = null;
     private ActionBarActivity mActionBarActivity = null;
+    private DialogUtils mDialogUtils = null;
 
     @InjectView(R.id.fl_animation_container)
         FrameLayout fl_animation_container;
@@ -95,8 +97,8 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
         String dialogTitle = mActionBarActivity.getString(R.string.sync_dialog_title);
         String dialogMessage = mActionBarActivity.getString(R.string.sync_dialog_message);
 
-        mProgressDialog = ProgressDialog.show(mActionBarActivity,
-                dialogTitle,dialogMessage , true, true);
+        mProgressDialog = mDialogUtils.getProgressDialog(dialogTitle, dialogMessage);
+        mProgressDialog.show();
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -141,13 +143,12 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
     private void initViews()    {
         initSearchHeader();
         initExpandableList();
-    }
+            }
 
     private void initExpandableList() {
         List<DevicesRoom> devicesRoomList = generateDevicesList();
 
         mExpandableListAdapter = new ExpandableListAdapter(mActionBarActivity, devicesRoomList, expandable_list_view);
-        //expandable_list_view.setGroupIndicator(getDrawableFromResource(R.drawable.ic_find_next_holo_light));
         expandable_list_view.setAdapter(mExpandableListAdapter);
         expandable_list_view.setEmptyView(tv_list_is_empty);
 
@@ -164,38 +165,6 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
                 return false;
             }
         });
-       /* expandable_list_view.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                if (parent.isGroupExpanded(groupPosition)) {
-
-                } else {
-
-                }
-                return true;
-            }
-        });*/
-
-/*
-        expandable_list_view.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                if (expandable_list_view.isGroupExpanded(groupPosition)) {
-                    expandable_list_view.setGroupIndicator(
-                            getDrawableFromResource(R.drawable.ic_find_next_holo_light));
-                }
-            }
-        });
-
-        expandable_list_view.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
-            @Override
-            public void onGroupCollapse(int groupPosition) {
-                if (!expandable_list_view.isGroupExpanded(groupPosition)) {
-                    expandable_list_view.setGroupIndicator(
-                            getDrawableFromResource(R.drawable.ic_find_previous_holo_light));
-                }
-            }
-        });*/
 
         // In order to show animations, we need to use a custom click handler
         // for our ExpandableListView.
@@ -250,14 +219,6 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
         });
     }
 
-    private Drawable getDrawableFromResource(int resId) {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            return mActionBarActivity.getDrawable(resId);
-        }
-        return getResources().getDrawable(resId);
-    }
-
     private List<DevicesRoom> generateDevicesList()   {
         List<DevicesRoom> devicesRoomList = new ArrayList<DevicesRoom>();
 
@@ -303,6 +264,7 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mActionBarActivity = (ActionBarActivity)activity;
+        mDialogUtils = new DialogUtils(activity);
     }
 
     private void startDeviceActivity(Device device, DevicesRoom devicesRoom)  {

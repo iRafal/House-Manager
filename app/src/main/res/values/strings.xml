@@ -9,7 +9,7 @@
 
     <string name="empty_str"></string>
     <string name="navigation">Navigation</string>
-    <string name="enter_device_name">Enter device name..</string>
+    <string name="enter_device_name">Enter device name...</string>
     <string name="sign_out">Sign out</string>
     <string name="sign_in">Sign in</string>
     <string name="sign_up">Sign up</string>

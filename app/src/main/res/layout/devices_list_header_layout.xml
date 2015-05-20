@@ -2,7 +2,7 @@
 <com.medvid.andriy.housemanager.views.DrawableTouchEditText xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/et_search_header"
     style="@style/EditText_Style"
-    android:drawableRight="@drawable/ic_clear_search_api_holo_light"
+    android:drawableRight="@drawable/cross_gray"
     android:hint="@string/enter_device_name"
     android:focusableInTouchMode="true"
     android:focusable="true"/>

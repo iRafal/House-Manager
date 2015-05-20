@@ -118,14 +118,16 @@ public class BarChartActivity extends BaseActivity implements SeekBar.OnSeekBarC
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
 
-        if(id == R.id.action_save_to_gallery)   {
-            saveToGallery();
-            return true;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                break;
+            case R.id.action_save_to_gallery:
+                saveToGallery();
+                break;
         }
-
-        return false;
+        return true;
     }
 
     @Override

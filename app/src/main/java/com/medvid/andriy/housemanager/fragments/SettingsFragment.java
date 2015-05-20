@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.medvid.andriy.housemanager.R;
-import com.medvid.andriy.housemanager.utils.DialogBuilder;
+import com.medvid.andriy.housemanager.utils.DialogUtils;
 import com.zzt.inbox.interfaces.OnDragStateChangeListener;
 import com.zzt.inbox.widget.InboxBackgroundScrollView;
 import com.zzt.inbox.widget.InboxLayoutBase;
@@ -37,7 +37,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
 
     private ActionBarActivity mActionBarActivity = null;
     private ActionBar mActionBar = null;
-
+    private DialogUtils mDialogUtils = null;
     private Bitmap bitmap;
 
     //Titles
@@ -119,7 +119,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mActionBarActivity = (ActionBarActivity) activity;
-        DialogBuilder.setContext(mActionBarActivity);
+        mDialogUtils = new DialogUtils(mActionBarActivity);
     }
 
     private void initViews() {
@@ -189,7 +189,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
             case R.id.tv_change_user_password:
                 break;
             case R.id.btn_sign_out:
-                DialogBuilder.showSignOutDialog();
+                mDialogUtils.showSignOutDialog();
                 break;
             case R.id.tv_user_name_settings_item:
                 inboxlayout_user_name.openWithAnim(tv_user_name_settings_item);

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="ripple_view_animation_duration">3000</integer>
+    <integer name="ripple_amount">6</integer>
+    <integer name="ripple_scale">6</integer>
+</resources>

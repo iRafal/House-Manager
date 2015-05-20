@@ -4,17 +4,19 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
+
 import com.rey.material.widget.Switch;
+
 import android.widget.TextView;
 
 import com.medvid.andriy.housemanager.R;
 import com.medvid.andriy.housemanager.dataset.Device;
 import com.medvid.andriy.housemanager.dataset.DevicesRoom;
-import com.medvid.andriy.housemanager.utils.DialogBuilder;
+import com.medvid.andriy.housemanager.utils.DialogUtils;
 import com.medvid.andriy.housemanager.utils.SlidrHelper;
 
 import butterknife.ButterKnife;
@@ -51,6 +53,7 @@ public class DeviceActivity extends BaseActivity implements View.OnClickListener
     private DevicesRoom mDevicesRoom = null;
     private ProgressDialog mProgressDialog = null;
     private boolean mIsScreenInit = true;
+    private DialogUtils mDialogUtils = null;
 
     @InjectView(R.id.tv_device_name)
     TextView tv_device_name;
@@ -84,7 +87,7 @@ public class DeviceActivity extends BaseActivity implements View.OnClickListener
 
         ButterKnife.inject(this);
 
-        DialogBuilder.setContext(this);
+        mDialogUtils = new DialogUtils(this);
 
         initSlidr();
 
@@ -124,11 +127,17 @@ public class DeviceActivity extends BaseActivity implements View.OnClickListener
 
         initSwitcherView();
 
-        if(!mDevice.getDeviceType().equals(Device.MEASURE_DEVICE))  {
+        if (!mDevice.getDeviceType().equals(Device.MEASURE_DEVICE)) {
             btn_devices_measurement_statistic.setVisibility(View.GONE);
         }
 
         tv_device_name.setText(mDevice.getDeviceName());
+        tv_device_model.setText(mDevice.getDeviceModel());
+        tv_device_type.setText(mDevice.getDeviceType());
+        tv_device_room.setText(mDevicesRoom.getRoomName());
+        tv_device_is_busy.setText(mDevice.isDeviceBusy()
+                ? getString(R.string.yes) : getString(R.string.no));
+
     }
 
     private void initSwitcherView() {
@@ -137,8 +146,8 @@ public class DeviceActivity extends BaseActivity implements View.OnClickListener
         switch_status.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_DOWN)    {
-                    if(!isUserRoot())   {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    if (!isUserRoot()) {
                         showDisableChangeDeviceStatusDialog();
                         return true;
                     }
@@ -188,17 +197,28 @@ public class DeviceActivity extends BaseActivity implements View.OnClickListener
         return isCurrentUserRoot;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                break;
+        }
+        return true;
+    }
+
     private void showDisableChangeDeviceStatusDialog() {
         String message = getString(R.string.device_is_busy_by_another_user);
         String title = getString(R.string.toggle_device_status);
-        DialogBuilder.showOkDialog(title, message);
+        mDialogUtils.showOkDialog(title, message);
     }
 
     private void showProgressDialog() {
         String dialogMessage = getString(R.string.switching_off_device);
 
-        mProgressDialog = ProgressDialog.show(this,
-                null, dialogMessage, true, true);
+        mProgressDialog = mDialogUtils.getProgressDialog(null, dialogMessage);
+        mProgressDialog.show();
 
         new Handler().postDelayed(new Runnable() {
             @Override

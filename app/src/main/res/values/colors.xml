@@ -22,10 +22,23 @@
     <color name="orange">#f5b520</color>
     <color name="green_dark">#128867</color>
 
-    <color name="green_dark_bright">#00a47f</color>
+    <color name="green_dark_plus">#00a47f</color>
 
     <color name="indicator_1">#55B3C2</color>
     <color name="indicator_2">#64A4A4</color>
     <color name="indicator_3">#66D7B9</color>
     <color name="indicator_4">#FDBC7D</color>
+
+    <color name="ripple_view_color">#049bcd</color>
+    <color name="floating_button_color_normal">#efbf00</color>
+    <color name="floating_button_color_pressed">#a88e26</color>
+
+    <color name="status_bar_gray">#5e5e5e</color>
+    <color name="light_blue_green">#5badb5</color>
+
+    <color name="gray_brighter">#ccd1d3</color>
+
+    <color name="blue_darker">#1e73ca</color>
+    <color name="orange_bright">#efbf00</color>
+    <color name="gray_unactive">#939598</color>
 </resources>

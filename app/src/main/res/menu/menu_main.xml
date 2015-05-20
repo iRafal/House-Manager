@@ -4,7 +4,7 @@
     <item android:id="@+id/action_sync"
         android:title="@string/Update"
         android:orderInCategory="100"
-        android:icon="@android:drawable/stat_notify_sync"
+        android:icon="@drawable/ic_sync"
         android:visible="false"
         app:showAsAction="ifRoom|withText" />
 </menu>

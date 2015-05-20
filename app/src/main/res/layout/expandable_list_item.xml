@@ -15,7 +15,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/black"
         android:text="Device"
-        android:drawableLeft="@drawable/abc_btn_radio_to_on_mtrl_015"
+        android:drawableLeft="@drawable/point_green"
         android:drawablePadding="@dimen/edge_above_medium"
         android:gravity="center"/>
 
@@ -24,10 +24,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="status"
-        android:textColor="@color/black"
         android:paddingBottom="@dimen/edge_normal_plus"
-        android:drawableLeft="@drawable/ic_microphone"
+        android:textColor="@color/gray_unactive"
         android:drawablePadding="@dimen/edge_above_medium"
         android:gravity="center"/>
 

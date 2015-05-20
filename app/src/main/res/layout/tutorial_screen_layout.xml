@@ -16,17 +16,19 @@
             android:layout_gravity="center" />
 
         <github.chenupt.springindicator.SpringIndicator xmlns:app="http://schemas.android.com/apk/res-auto"
-            app:siTextSize="18sp"
-            app:siIndicatorColors="@array/indicator_colors"
-            app:siTextColor="@color/green"
-            app:siSelectedTextColor="@android:color/white"
-            app:siIndicatorColor="@color/green"
             android:id="@+id/indicator"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_gravity="center_horizontal|bottom" />
+            android:layout_height="@dimen/edge_grand"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginLeft="@dimen/edge_large"
+            android:layout_marginRight="@dimen/edge_large"
+            app:siIndicatorColor="@color/green"
+            app:siIndicatorColors="@array/indicator_colors"
+            app:siSelectedTextColor="@android:color/white"
+            app:siTextColor="@color/green"
+            app:siTextSize="@dimen/text_normal_medium"
+            android:layout_marginBottom="@dimen/edge_large_plus" />
+
     </FrameLayout>
 
 </LinearLayout>

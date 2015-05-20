@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.medvid.andriy.housemanager.R;
 import com.medvid.andriy.housemanager.activity.VoiceControlInfoActivity;
+import com.medvid.andriy.housemanager.utils.ImageUtils;
 import com.melnykov.fab.FloatingActionButton;
 import com.skyfishjy.library.RippleBackground;
 
@@ -28,25 +29,25 @@ import yalantis.com.sidemenu.interfaces.ScreenShotable;
  */
 public class VoiceControlFragment extends Fragment implements ScreenShotable, View.OnClickListener {
 
+    public static final String VOICE_CONTROL_SCREEN = "Voice Control";
+
     private ActionBarActivity mActionBarActivity = null;
     private ActionBar mActionBar = null;
     private View mFragmentView = null;
+    private ImageUtils mImageUtils = null;
 
     @InjectView(R.id.floating_button)
         FloatingActionButton floating_button;
-
-    public static final String VOICE_CONTROL_SCREEN = "Voice Control";
-
-    public static VoiceControlFragment instantiate()    {
-        return new VoiceControlFragment();
-    }
-
     @InjectView(R.id.rb_ripple_microphone_background)
         RippleBackground mRippleBackground;
     @InjectView(R.id.iv_center_image)
         ImageView iv_center_image;
     @InjectView(R.id.tv_command_title)
         TextView tv_command_title;
+
+    public static VoiceControlFragment instantiate()    {
+        return new VoiceControlFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -74,6 +75,7 @@ public class VoiceControlFragment extends Fragment implements ScreenShotable, Vi
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mActionBarActivity = (ActionBarActivity)activity;
+        mImageUtils = new ImageUtils(activity);
     }
 
     @Override
@@ -117,9 +119,13 @@ public class VoiceControlFragment extends Fragment implements ScreenShotable, Vi
         if(!mRippleBackground.isRippleAnimationRunning()) {
             mRippleBackground.startRippleAnimation();
             tv_command_title.setVisibility(View.VISIBLE);
+            iv_center_image.setImageDrawable(
+                    mImageUtils.getDrawableFromResource(R.drawable.microphone_white));
         }   else    {
             mRippleBackground.stopRippleAnimation();
             tv_command_title.setVisibility(View.INVISIBLE);
+            iv_center_image.setImageDrawable(
+                    mImageUtils.getDrawableFromResource(R.drawable.microphone_black));
         }
 
         toggleFloatingActionButton();

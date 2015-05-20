@@ -1,11 +1,9 @@
 package com.medvid.andriy.housemanager.views.animated_expandble_list_view.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.medvid.andriy.housemanager.R;
@@ -97,17 +95,27 @@ public class ExpandableListAdapter extends AnimatedExpandableListView.AnimatedEx
 
         String deviceStatus = null;
         int statusIcResId = 0;
+        int deviceNameIcResId = 0;
+        int textColor;
 
         if(deviceItem.isDeviceSwitchedOn()) {
             deviceStatus = mContext.getString(R.string.switched_on);
-            statusIcResId = R.drawable.ic_microphone;
+            statusIcResId = R.drawable.lamp_orange;
+            textColor = R.color.orange_bright;
+            deviceNameIcResId = R.drawable.point_green;
         }   else    {
             deviceStatus = mContext.getString(R.string.switched_off);
-            statusIcResId = R.drawable.abc_btn_radio_to_on_mtrl_015;
+            statusIcResId = R.drawable.lamp_gray;
+            textColor = R.color.gray_unactive;
+            deviceNameIcResId = R.drawable.ic_point_unselected;
         }
 
+        childHolder.tv_device_status.setTextColor(mContext.getResources().getColor(textColor));
         childHolder.tv_device_status.setText(deviceStatus);
-        childHolder.tv_device_status.setCompoundDrawablesWithIntrinsicBounds(statusIcResId, 0, 0, 0);
+        childHolder.tv_device_status.
+                setCompoundDrawablesWithIntrinsicBounds(0, 0, statusIcResId, 0);
+        childHolder.tv_device_name.
+                setCompoundDrawablesWithIntrinsicBounds(deviceNameIcResId, 0, 0, 0);
     }
 
     @Override

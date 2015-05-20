@@ -15,7 +15,7 @@
         android:layout_marginTop="@dimen/edge_big_minus"
         android:text="@string/measurement_time_limits"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/blue_light" />
+        android:textColor="@color/black" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/edge_above"
         android:layout_marginLeft="@dimen/edge_normal_medium"
-        android:drawableRight="@drawable/spinner_custom_selector"
+        android:drawableRight="@drawable/arrow_cut_down_blue"
         android:gravity="center|left"
         android:text="@string/from_date"
         android:textColor="@color/black" />
@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/edge_above"
         android:layout_marginLeft="@dimen/edge_normal_medium"
-        android:drawableRight="@drawable/spinner_custom_selector"
+        android:drawableRight="@drawable/arrow_cut_down_blue"
         android:gravity="center|left"
         android:text="@string/to_date"
         android:textColor="@color/black" />
@@ -112,7 +112,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/edge_above"
         android:layout_marginLeft="@dimen/edge_normal_medium"
-        android:drawableRight="@drawable/spinner_custom_selector"
+        android:drawableRight="@drawable/arrow_cut_down_blue"
         android:gravity="center|left"
         android:text="@string/from_time"
         android:textColor="@color/black" />
@@ -140,7 +140,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/edge_above"
-        android:drawableRight="@drawable/spinner_custom_selector"
+        android:drawableRight="@drawable/arrow_cut_down_blue"
         android:gravity="center|left"
         android:layout_marginLeft="@dimen/edge_normal_medium"
         android:text="@string/to_time"

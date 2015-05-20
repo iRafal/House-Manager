@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_dark"
+    android:background="@color/white"
     tools:context=".MeasurementStatisticActivity">
 
     <LinearLayout
@@ -46,7 +46,8 @@
                 android:drawableLeft="@drawable/bar_chart_ic"
                 android:drawablePadding="@dimen/edge_above_medium"
                 android:gravity="center"
-                android:text="BarChart" />
+                android:textColor="@color/black"
+                android:text="@string/bar_chart" />
 
             <View
                 android:layout_width="0dp"
@@ -61,7 +62,8 @@
                 android:drawableLeft="@drawable/line_chart_ic"
                 android:drawablePadding="@dimen/edge_above_medium"
                 android:gravity="center"
-                android:text="LineChart" />
+                android:text="@string/line_chart"
+                android:textColor="@color/black"/>
 
             <View
                 android:layout_width="0dp"

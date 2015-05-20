@@ -3,8 +3,7 @@ package com.medvid.andriy.housemanager.activity;
 import android.os.Bundle;
 
 import com.medvid.andriy.housemanager.R;
-import com.medvid.andriy.housemanager.fragments.TutorialFragment;
-import com.medvid.andriy.housemanager.utils.DialogBuilder;
+import com.medvid.andriy.housemanager.fragments.TutorialFragmentItem;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -34,10 +33,10 @@ public class TutorialActivity extends BaseActivity {
         SpringIndicator springIndicator = ButterKnife.findById(this,R.id.indicator);
 
         PagerManager manager = new PagerManager();
-        manager.addFragment(TutorialFragment.instantiate());
-        manager.addFragment(TutorialFragment.instantiate());
-        manager.addFragment(TutorialFragment.instantiate());
-        manager.addFragment(TutorialFragment.instantiate());
+        manager.addFragment(TutorialFragmentItem.instantiate(), "1");
+        manager.addFragment(TutorialFragmentItem.instantiate(), "2");
+        manager.addFragment(TutorialFragmentItem.instantiate(), "3");
+        manager.addFragment(TutorialFragmentItem.instantiate(), "4");
 
         ModelPagerAdapter adapter = new ModelPagerAdapter(getSupportFragmentManager(), manager);
         viewPager.setAdapter(adapter);

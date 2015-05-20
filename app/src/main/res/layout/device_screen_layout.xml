@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_dark"
+    android:background="@color/light_blue_green"
     android:orientation="vertical"
     android:padding="@dimen/edge_big_minus"
     tools:context=".DeviceActivity">
 
     <TextView
         android:id="@+id/tv_device_name"
-        style="@style/TextViewSettingsTitleStyle"
-        android:text="Device name" />
+        style="@style/TextViewSettingsTitleStyle"/>
 
     <TableLayout
         android:id="@+id/hided_panel"
@@ -37,7 +36,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="@dimen/edge_above"
-                android:text="Sony Xperia"
                 android:textSize="@dimen/text_normal_medium" />
         </TableRow>
 
@@ -59,7 +57,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="@dimen/edge_above"
-                android:text="Measure Device"
                 android:textSize="@dimen/text_normal_medium" />
         </TableRow>
 
@@ -81,7 +78,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="@dimen/edge_above"
-                android:text="Room 910"
                 android:textSize="@dimen/text_normal_medium" />
         </TableRow>
 
@@ -103,7 +99,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="@dimen/edge_above"
-                android:text="@string/yes"
                 android:textSize="@dimen/text_normal_medium" />
         </TableRow>
 
@@ -141,8 +136,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:background="@android:color/transparent"
+            android:background="@drawable/btn_orange_rounded_rect"
             android:padding="@dimen/edge_above"
+            android:textAllCaps="false"
             android:text="Device measurements\nstatistic"
             android:textColor="@color/white"
             android:textSize="@dimen/text_normal_medium"/>

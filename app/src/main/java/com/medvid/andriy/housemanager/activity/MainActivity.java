@@ -1,21 +1,16 @@
 package com.medvid.andriy.housemanager.activity;
 
-import android.app.ProgressDialog;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,7 +27,7 @@ import com.medvid.andriy.housemanager.fragments.AboutFragment;
 import com.medvid.andriy.housemanager.fragments.DevicesListFragment;
 import com.medvid.andriy.housemanager.fragments.SettingsFragment;
 import com.medvid.andriy.housemanager.fragments.VoiceControlFragment;
-import com.medvid.andriy.housemanager.utils.DialogBuilder;
+import com.medvid.andriy.housemanager.utils.DialogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,11 +47,12 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
     private static final int ON_BACK_PRESS_TIME_DELAY = 2000;
     private String mCurrentFragmentTag = DevicesListFragment.DEVICES_SCREEN;
     private boolean mDoubleBackToExitPressedOnce = false;
+    private DialogUtils mDialogUtils = null;
 
     private ViewAnimator mViewAnimator;
     private List<SlideMenuItem> list = new ArrayList<>();
 
-    @InjectView(R.id.left_drawer)
+    @InjectView(R.id.ll_left_drawer)
     LinearLayout ll_left_drawer = null;
 
     @InjectView(R.id.drawer_layout)
@@ -69,7 +65,7 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_screen_layout);
 
-        DialogBuilder.setContext(this);
+        mDialogUtils = new DialogUtils(this);
 
         startFragmentByTag();
 
@@ -137,15 +133,15 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
     }
 
     private void createMenuList() {
-        SlideMenuItem menuItem0 = new SlideMenuItem(CLOSE, R.drawable.ic_dialog_close_normal_holo);
+        SlideMenuItem menuItem0 = new SlideMenuItem(CLOSE, R.drawable.cross_white);
         list.add(menuItem0);
-        SlideMenuItem menuItem = new SlideMenuItem(DevicesListFragment.DEVICES_SCREEN, R.drawable.abc_btn_radio_material);
+        SlideMenuItem menuItem = new SlideMenuItem(DevicesListFragment.DEVICES_SCREEN, R.drawable.ic_device);
         list.add(menuItem);
-        SlideMenuItem menuItem2 = new SlideMenuItem(VoiceControlFragment.VOICE_CONTROL_SCREEN, R.drawable.ic_microphone);
+        SlideMenuItem menuItem2 = new SlideMenuItem(VoiceControlFragment.VOICE_CONTROL_SCREEN, R.drawable.ic_microphone_white);
         list.add(menuItem2);
         SlideMenuItem menuItem3 = new SlideMenuItem(SettingsFragment.SETTINGS_SCREEN, R.drawable.ic_settings);
         list.add(menuItem3);
-        SlideMenuItem menuItem4 = new SlideMenuItem(AboutFragment.ABOUT_SCREEN, R.drawable.stat_sys_certificate_info);
+        SlideMenuItem menuItem4 = new SlideMenuItem(AboutFragment.ABOUT_SCREEN, R.drawable.ic_info);
         list.add(menuItem4);
     }
 
@@ -263,8 +259,9 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
         switch (resourceble.getName()) {
             case CLOSE:
                 return screenShotable;
-            default:
+            default: {
                 fragment = (ScreenShotable) getFragmentByTag(resourceble.getName());
+            }
         }
 
         return replaceFragment(fragment, i);

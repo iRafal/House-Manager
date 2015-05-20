@@ -8,18 +8,17 @@
         android:orientation="vertical"
         android:weightSum="1.0">
 
-        <include
-            layout="@layout/application_label_layout"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/edge_normal_plus"
-            android:layout_weight="0.6" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_the_most_smaller_with_text"
+            android:layout_gravity="center_horizontal"/>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/edge_mini"
+            android:layout_height="@dimen/edge_tiny"
             android:layout_weight="0.005"
-            android:background="@color/gray" />
+            android:background="@color/blue_darker" />
 
         <include
             layout="@layout/about_info_layout"

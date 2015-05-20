@@ -3,7 +3,7 @@
 <io.codetail.widget.RevealFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_dark">
+    android:background="@color/light_blue_green">
 
     <FrameLayout
         android:id="@+id/fl_animation_container"
@@ -29,12 +29,19 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:background="@null"
-                    android:drawableRight="@drawable/ic_go"
+                    android:drawableRight="@drawable/arrow_cut_right"
                     android:gravity="left"
                     android:padding="@dimen/edge_big"
                     android:text="@string/user_name"
                     android:textSize="@dimen/text_normal_medium"
                     android:textColor="@color/white" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edge_tiny"
+                    android:background="@color/gray_brighter"
+                    android:layout_marginRight="@dimen/edge_big"
+                    android:layout_marginLeft="@dimen/edge_big"/>
 
                 <TextView
                     android:id="@+id/tv_user_password_settings_item"
@@ -42,12 +49,19 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:background="@null"
-                    android:drawableRight="@drawable/ic_go"
+                    android:drawableRight="@drawable/arrow_cut_right"
                     android:gravity="left"
                     android:padding="@dimen/edge_big"
                     android:textSize="@dimen/text_normal_medium"
                     android:text="@string/change_user_password"
                     android:textColor="@color/white" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edge_tiny"
+                    android:background="@color/gray_brighter"
+                    android:layout_marginRight="@dimen/edge_big"
+                    android:layout_marginLeft="@dimen/edge_big"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -68,10 +82,12 @@
                         <Button
                             android:id="@+id/btn_sign_out"
                             style="@style/TextViewSettingsTitleStyle"
+                            android:textStyle="normal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:background="@null"
+                            android:background="@drawable/btn_orange_rounded_rect"
+                            android:textAllCaps="false"
                             android:padding="@dimen/edge_above_minus"
                             android:text="@string/sign_out" />
                     </RelativeLayout>

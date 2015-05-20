@@ -14,18 +14,18 @@
             android:id="@+id/rb_ripple_microphone_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:rb_color="#0099CC"
-            app:rb_duration="3000"
-            app:rb_radius="32dp"
-            app:rb_rippleAmount="6"
-            app:rb_scale="6">
+            app:rb_color="@color/ripple_view_color"
+            app:rb_duration="@integer/ripple_view_animation_duration"
+            app:rb_radius="@dimen/edge_huge"
+            app:rb_rippleAmount="@integer/ripple_amount"
+            app:rb_scale="@integer/ripple_scale">
 
             <ImageView
                 android:id="@+id/iv_center_image"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/ic_microphone_gray" />
+                android:src="@drawable/microphone_black" />
         </com.skyfishjy.library.RippleBackground>
 
         <com.melnykov.fab.FloatingActionButton
@@ -34,23 +34,22 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="@dimen/edge_large"
-            android:src="@drawable/ic_lockscreen_forgotpassword_normal"
-            fab:fab_colorNormal="@color/red"
-            fab:fab_colorPressed="@color/green_dark"
-            fab:fab_colorRipple="@color/gray" />
+            android:src="@drawable/question_mark"
+            fab:fab_colorNormal="@color/floating_button_color_normal"
+            fab:fab_colorRipple="@color/floating_button_color_pressed" />
 
-        <TextView
-            android:id="@+id/tv_command_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/witing_for_command"
-            android:textColor="@color/black"
-            android:background="@null"
-            android:textSize="@dimen/text_large"
-            android:padding="@dimen/edge_above"
-            android:gravity="center"
-            android:visibility="invisible"/>
-
+            <TextView
+                android:id="@+id/tv_command_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/edge_huge_plus"
+                android:layout_gravity="center|top"
+                android:background="@null"
+                android:padding="@dimen/edge_normal_medium_plus"
+                android:text="@string/witing_for_command"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                android:visibility="invisible" />
     </FrameLayout>
 
 </LinearLayout>

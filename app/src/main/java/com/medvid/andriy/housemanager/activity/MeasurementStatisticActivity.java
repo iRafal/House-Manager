@@ -2,6 +2,7 @@ package com.medvid.andriy.housemanager.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.medvid.andriy.housemanager.utils.DateUtils;
@@ -397,5 +398,16 @@ public class MeasurementStatisticActivity extends BaseActivity implements View.O
     private void showToast(int messageResId, int toastLength) {
         String message = getString(messageResId);
         showToast(message, toastLength);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                break;
+        }
+        return true;
     }
 }
