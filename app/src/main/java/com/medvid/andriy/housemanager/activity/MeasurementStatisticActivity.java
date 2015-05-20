@@ -355,6 +355,10 @@ public class MeasurementStatisticActivity extends BaseActivity implements View.O
                 } else {
                     toggleDateViewsState(isChecked);
 
+                    if(mFirstTime == null && mSecondDate == null)   {
+                        return;
+                    }
+
                     if (DateUtils.compareTwoDates(mFirstDate, mSecondDate) >= 0) {
                         Calendar dayBefore = Calendar.getInstance();
                         dayBefore.set(mFirstDate.get(Calendar.YEAR),
@@ -367,7 +371,6 @@ public class MeasurementStatisticActivity extends BaseActivity implements View.O
                                         R.string.day_and_full_month_name_and_year_date_format));
 
                         tv_second_date_selector.setText(dateFormat.format(dayBefore.getTime()));
-
                     }
                 }
                 break;
