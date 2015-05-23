@@ -40,6 +40,19 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     private DialogUtils mDialogUtils = null;
     private Bitmap bitmap;
 
+    private OnDragStateChangeListener mEmptyOnDragStateChangeListener
+            = new OnDragStateChangeListener() {
+        @Override
+        public void dragStateChange(InboxLayoutBase.DragState state) {
+            switch (state) {
+                case CANCLOSE:
+                    break;
+                case CANNOTCLOSE:
+                    break;
+            }
+        }
+    };
+
     //Titles
     @InjectView(R.id.tv_user_name_settings_title)
     TextView tv_user_name_settings_title;
@@ -86,8 +99,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     @InjectView(R.id.inboxlayout_user_password)
     InboxLayoutScrollView inboxlayout_user_password;
 
-    private View containerView = null;
-
     public static SettingsFragment instantiate() {
         return new SettingsFragment();
     }
@@ -102,7 +113,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.containerView = view.findViewById(R.id.container);
     }
 
     @Override
@@ -111,7 +121,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         mActionBar = mActionBarActivity.getSupportActionBar();
         mActionBar.setTitle(R.string.settings);
         mActionBar.invalidateOptionsMenu();
-
         initViews();
     }
 
@@ -137,39 +146,11 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
 
         inboxlayout_user_name.setBackgroundScrollView(inboxBackgroundScrollView);
         inboxlayout_user_name.setCloseDistance(SWIPE_CLOSING_DISTANCE);
-        inboxlayout_user_name.setOnDragStateChangeListener(new OnDragStateChangeListener() {
-            @Override
-            public void dragStateChange(InboxLayoutBase.DragState state) {
-                switch (state) {
-                    case CANCLOSE:
-                        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xff5e5e5e));
-                        //getSupportActionBar().setTitle("Back");
-                        break;
-                    case CANNOTCLOSE:
-                        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xdd000000));
-                        //getSupportActionBar().setTitle("InboxLayout");
-                        break;
-                }
-            }
-        });
+        inboxlayout_user_name.setOnDragStateChangeListener(mEmptyOnDragStateChangeListener);
 
         inboxlayout_user_password.setBackgroundScrollView(inboxBackgroundScrollView);
         inboxlayout_user_password.setCloseDistance(SWIPE_CLOSING_DISTANCE);
-        inboxlayout_user_password.setOnDragStateChangeListener(new OnDragStateChangeListener() {
-            @Override
-            public void dragStateChange(InboxLayoutBase.DragState state) {
-                switch (state) {
-                    case CANCLOSE:
-                        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xff5e5e5e));
-                        //getSupportActionBar().setTitle("Back");
-                        break;
-                    case CANNOTCLOSE:
-                        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(0xdd000000));
-                        //getSupportActionBar().setTitle("InboxLayout");
-                        break;
-                }
-            }
-        });
+        inboxlayout_user_password.setOnDragStateChangeListener(mEmptyOnDragStateChangeListener);
     }
 
     @Override

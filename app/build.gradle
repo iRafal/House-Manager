@@ -79,4 +79,7 @@ dependencies {
 
     //material widgets
     compile 'com.github.rey5137:material:1.1.0'
+
+    compile 'com.google.code.gson:gson:1.7.2'
+
 }

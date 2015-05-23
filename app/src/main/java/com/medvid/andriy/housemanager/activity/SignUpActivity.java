@@ -6,8 +6,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
 import com.medvid.andriy.housemanager.R;
+import com.medvid.andriy.housemanager.dataset.User;
+import com.medvid.andriy.housemanager.utils.CookiesManager;
 import com.medvid.andriy.housemanager.utils.SlidrHelper;
+
+import java.util.Random;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -32,9 +37,7 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
         setContentView(R.layout.sign_up_screen_layout);
 
         ButterKnife.inject(this);
-
         initSlidr();
-
         initViews();
     }
 
@@ -53,11 +56,51 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void signUpAction() {
-        String userNameOrEmail = et_user_name_sign_up.getText().toString();
+        String userName = et_user_name_sign_up.getText().toString();
         String password = et_password_sign_up.getText().toString();
         String confirmPassword = et_confirm_password_sign_up.getText().toString();
 
+        if(validateInput(userName, password, confirmPassword))  {
+            //Init User object
+            Gson gson = new Gson();
+
+            Random randomGenerator = new Random();
+            int randomId = randomGenerator.nextInt(Integer.MAX_VALUE);
+
+            User currentUser = User.getSimpleUser(randomId, userName, password);
+            String userStringJsonObject = gson.toJson(currentUser);
+
+            //TODO: Send request to server for saving user data
+
+            //Write saved data
+           CookiesManager.writeUserData(userStringJsonObject);
+        }
+
+        //TODO: start in sign un thread by handler
       startEntryActivity();
+    }
+
+    private boolean validateInput(String userName, String password, String confirmPassword) {
+        boolean validationSuccess = true;
+        if(userName.isEmpty())  {
+            validationSuccess = false;
+            //
+        }
+
+        if(password.isEmpty())  {
+            validationSuccess = false;
+            //
+        }
+
+        if(confirmPassword.isEmpty())  {
+            validationSuccess = false;
+            //
+        }   else if(!confirmPassword.equals(password))  {
+            validationSuccess = false;
+            //
+        }
+
+        return validationSuccess;
     }
 
     private void startEntryActivity()    {

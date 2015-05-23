@@ -39,7 +39,6 @@ public class DialogUtils {
 
     public ProgressDialog getProgressDialog(String title, String message,
                                             boolean indeterminable, boolean cancelable)  {
-
         return getProgressDialog(ProgressDialog.THEME_DEVICE_DEFAULT_DARK,
                 title, message, indeterminable, cancelable);
     }
@@ -68,9 +67,11 @@ public class DialogUtils {
                     case R.id.cancel_it_button:
                         break;
                     case R.id.submit_button:
-                        Intent mainIntent = new Intent(mContext, EntryActivity.class);
-                        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        mContext.startActivity(mainIntent);
+                        if(CookiesManager.removeUserData()) {
+                            Intent mainIntent = new Intent(mContext, EntryActivity.class);
+                            mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            mContext.startActivity(mainIntent);
+                        }
                         break;
                 }
                 dialog.dismiss();
