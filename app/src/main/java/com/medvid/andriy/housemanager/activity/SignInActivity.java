@@ -40,7 +40,6 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         ButterKnife.inject(this);
         initSlidr();
         initViews();
-
     }
 
     private void initViews()    {
@@ -64,12 +63,12 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
             //After send for validation to server
             //TODO: async task for sending user info to server for validation
 
-            //TODO: In the same thread if success write data for autologin
+            //TODO: In the same thread if success write data for auto login
             CookiesManager.writeUserData(userStringJsonObject);
-        }
 
-        //TODO: start in sign in thread by handler
-        startEntryActivity();
+            //TODO: start in sign in thread by handler
+            startEntryActivity();
+        }
     }
 
     private boolean validateInput(String userName, String password) {
@@ -77,11 +76,13 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         if(userName.isEmpty())  {
             validationSuccess = false;
             //
+            et_user_name_sign_in.setError(getString(R.string.please_enter_user_name));
         }
 
         if(password.isEmpty())  {
             validationSuccess = false;
             //
+            et_password_sign_in.setError(getString(R.string.please_enter_user_password));
         }
         return validationSuccess;
     }

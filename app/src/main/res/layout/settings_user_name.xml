@@ -40,13 +40,12 @@
 
         <EditText
             android:id="@+id/et_new_user_name"
-            style="@style/EditText_Style"
+            style="@style/EditText_Style.White"
             android:layout_marginBottom="@dimen/edge_above"
             android:layout_marginLeft="@dimen/edge_normal_plus"
             android:layout_marginRight="@dimen/edge_normal_plus"
             android:hint="@string/new_user_name"
-            android:inputType="textPassword"
-            android:textColorHint="@color/white" />
+            android:inputType="text" />
     </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
     <Button

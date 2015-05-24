@@ -21,8 +21,9 @@
     <string name="entry_screen">Entry Screen</string>
     <string name="password">Password</string>
     <string name="on_back_tap_message">Please tap BACK again to exit</string>
-    <string name="made_by_string">Made by VI year study student - Andriy Medvid</string>
-    <string name="department_string">Department of Computer Aided Design</string>
+    <string name="made_by_string">Made by\nVI year study student</string>
+    <string name="developer_name">Andriy Medvid</string>
+    <string name="department_string">Department of\nComputer Aided Design</string>
     <string name="baccalaureate_theme_top">Baccalaureate work theme</string>
     <string name="baccalaureate_theme">Software development subsystem of intelligent tools house management</string>
     <string name="android_house_manager">Android House Manager</string>
@@ -88,6 +89,19 @@
     <string name="selected_time_can_not_lessr_then_first_time">Selected time can\'t be less than First Time</string>
     <string name="selected_time_can_not_be_bigger_then_second_time">Selected time can\'t be bigger than Second Time</string>
     <string name="selected_time_can_not_be_the_same_as_second_time">Selected time can\'t be the same as Second Time.</string>
+    <string name="please_enter_user_name">Please enter user name</string>
+    <string name="please_enter_user_password">Please enter password</string>
+    <string name="please_confirm_password">Please confirm password</string>
+    <string name="confirm_password_must_be_repeated_exactly">Confirm password must be repeated exactly</string>
+    <string name="user_name_changed_successfully">User name changed successfully</string>
+    <string name="user_name_changing_failed">User name changing failed</string>
+    <string name="user_password_changed_successfully">User password changed successfully</string>
+    <string name="user_password_changing_failed">User password changing failed</string>
+    <string name="view_statistics">View statistics</string>
+    <string name="is_busy">Is Busy</string>
+    <string name="type">Type</string>
+    <string name="university_name">National University\nLviv Polytechnic</string>
+    <string name="start">Start</string>
 
 </resources>
 

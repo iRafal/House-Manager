@@ -33,10 +33,10 @@ public class TutorialActivity extends BaseActivity {
         SpringIndicator springIndicator = ButterKnife.findById(this,R.id.indicator);
 
         PagerManager manager = new PagerManager();
-        manager.addFragment(TutorialFragmentItem.instantiate(), "1");
-        manager.addFragment(TutorialFragmentItem.instantiate(), "2");
-        manager.addFragment(TutorialFragmentItem.instantiate(), "3");
-        manager.addFragment(TutorialFragmentItem.instantiate(), "4");
+        manager.addFragment(TutorialFragmentItem.instantiate(TutorialFragmentItem.DESCRIPTION), "1");
+        manager.addFragment(TutorialFragmentItem.instantiate(TutorialFragmentItem.DESCRIPTION), "2");
+        manager.addFragment(TutorialFragmentItem.instantiate(TutorialFragmentItem.DESCRIPTION), "3");
+        manager.addFragment(TutorialFragmentItem.instantiate(TutorialFragmentItem.START), "4");
 
         ModelPagerAdapter adapter = new ModelPagerAdapter(getSupportFragmentManager(), manager);
         viewPager.setAdapter(adapter);

@@ -7,6 +7,7 @@
     <color name="silver">#C0C0C0</color>
     <color name="gray">#808080</color>
     <color name="gray_bright">#a8a8a8</color>
+    <color name="gray_measurement_screen">#a8a8a8</color>
     <color name="olive">#808000</color>
     <color name="purple">#800080</color>
     <color name="maroon">#800000</color>
@@ -41,4 +42,8 @@
     <color name="blue_darker">#1e73ca</color>
     <color name="orange_bright">#efbf00</color>
     <color name="gray_unactive">#939598</color>
+
+    <color name="green_bright">#8dc53f</color>
+
+    <color name="gray_devices_screen_text">#3d3c3c</color>
 </resources>

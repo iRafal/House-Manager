@@ -15,13 +15,17 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.medvid.andriy.housemanager.R;
+import com.medvid.andriy.housemanager.utils.CookiesManager;
 import com.medvid.andriy.housemanager.utils.DialogUtils;
 import com.zzt.inbox.interfaces.OnDragStateChangeListener;
 import com.zzt.inbox.widget.InboxBackgroundScrollView;
 import com.zzt.inbox.widget.InboxLayoutBase;
 import com.zzt.inbox.widget.InboxLayoutScrollView;
+
+import java.net.CookieManager;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -33,7 +37,6 @@ import yalantis.com.sidemenu.interfaces.ScreenShotable;
 public class SettingsFragment extends Fragment implements View.OnClickListener, ScreenShotable {
 
     public static final String SETTINGS_SCREEN = "Settings Screen";
-    private static final int SWIPE_CLOSING_DISTANCE = 50;
 
     private ActionBarActivity mActionBarActivity = null;
     private ActionBar mActionBar = null;
@@ -145,11 +148,13 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         tv_user_password_settings_item.setOnClickListener(this);
 
         inboxlayout_user_name.setBackgroundScrollView(inboxBackgroundScrollView);
-        inboxlayout_user_name.setCloseDistance(SWIPE_CLOSING_DISTANCE);
+        inboxlayout_user_name.setCloseDistance(getResources().
+                getInteger(R.integer.swipe_closing_distance));
         inboxlayout_user_name.setOnDragStateChangeListener(mEmptyOnDragStateChangeListener);
 
         inboxlayout_user_password.setBackgroundScrollView(inboxBackgroundScrollView);
-        inboxlayout_user_password.setCloseDistance(SWIPE_CLOSING_DISTANCE);
+        inboxlayout_user_password.setCloseDistance(getResources().
+                getInteger(R.integer.swipe_closing_distance));
         inboxlayout_user_password.setOnDragStateChangeListener(mEmptyOnDragStateChangeListener);
     }
 
@@ -166,8 +171,10 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                 changeVisibility(ll_password_settings);
                 break;
             case R.id.tv_change_user_name:
+                changeUserName();
                 break;
             case R.id.tv_change_user_password:
+                changeUserPassword();
                 break;
             case R.id.btn_sign_out:
                 mDialogUtils.showSignOutDialog();
@@ -180,6 +187,66 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                 break;
         }
     }
+
+    private void changeUserName()   {
+        String userName = et_new_user_name.getText().toString();
+        if(validateInput(userName)) {
+            //Saving user name actions
+            String toastMessage = null;
+            if(CookiesManager.updateUserName(userName)) {
+                toastMessage = mActionBarActivity.
+                        getString(R.string.user_name_changed_successfully);
+            }   else    {
+                toastMessage = mActionBarActivity.
+                        getString(R.string.user_name_changed_successfully);
+            }
+            Toast.makeText(mActionBarActivity, toastMessage, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void changeUserPassword()   {
+        String password = et_enter_new_password.getText().toString();
+        String confirmPassword = et_confirm_new_password.getText().toString();
+        if(validateInput(password, confirmPassword))    {
+            //Saving password actions
+            String toastMessage = null;
+            if(CookiesManager.updateUserName(password)) {
+                toastMessage = mActionBarActivity.
+                        getString(R.string.user_password_changed_successfully);
+            }   else    {
+                toastMessage = mActionBarActivity.
+                        getString(R.string.user_password_changing_failed);
+            }
+            Toast.makeText(mActionBarActivity, toastMessage, Toast.LENGTH_LONG).show();;
+        }
+    }
+
+    private boolean validateInput(String userName) {
+        boolean validationSuccess = true;
+        if(userName.isEmpty())  {
+            validationSuccess = false;
+            et_new_user_name.setError(getString(R.string.please_enter_user_name));
+        }
+        return validationSuccess;
+    }
+
+    private boolean validateInput(String password, String confirmPassword) {
+        boolean validationSuccess = true;
+        if(password.isEmpty())  {
+            validationSuccess = false;
+            et_enter_new_password.setError(getString(R.string.please_enter_user_password));
+        }
+
+        if(confirmPassword.isEmpty())  {
+            validationSuccess = false;
+            et_confirm_new_password.setError(getString(R.string.please_confirm_password));
+        }   else if(!confirmPassword.equals(password))  {
+            validationSuccess = false;
+            et_confirm_new_password.setError(getString(R.string.confirm_password_must_be_repeated_exactly));
+        }
+        return validationSuccess;
+    }
+
 
     private void changeVisibility(View view) {
         if (view.getVisibility() == View.VISIBLE) {

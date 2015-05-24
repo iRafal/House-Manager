@@ -15,7 +15,7 @@
         android:layout_marginTop="@dimen/edge_big_minus"
         android:text="@string/measurement_time_limits"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/black" />
+        android:textColor="@color/green_dark" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,7 +43,7 @@
             android:layout_weight="0.5"
             android:text="@string/single_date"
             android:gravity="left|center"
-            android:textColor="@color/black"
+            android:textColor="@color/gray_measurement_screen"
             android:paddingLeft="@dimen/edge_normal"/>
     </LinearLayout>
 
@@ -53,10 +53,11 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/edge_above"
         android:layout_marginLeft="@dimen/edge_normal_medium"
-        android:drawableRight="@drawable/arrow_cut_down_blue"
+        android:textSize="@dimen/edge_big_plus"
+        android:drawableRight="@drawable/arrow_cut_down_gray"
         android:gravity="center|left"
         android:text="@string/from_date"
-        android:textColor="@color/black" />
+        android:textColor="@color/gray_measurement_screen" />
 
     <include
         layout="@layout/line_view_layout"
@@ -82,10 +83,11 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/edge_above"
         android:layout_marginLeft="@dimen/edge_normal_medium"
-        android:drawableRight="@drawable/arrow_cut_down_blue"
+        android:textSize="@dimen/edge_big_plus"
+        android:drawableRight="@drawable/arrow_cut_down_gray"
         android:gravity="center|left"
         android:text="@string/to_date"
-        android:textColor="@color/black" />
+        android:textColor="@color/gray_measurement_screen" />
 
     <include
         layout="@layout/line_view_layout"
@@ -112,10 +114,11 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/edge_above"
         android:layout_marginLeft="@dimen/edge_normal_medium"
-        android:drawableRight="@drawable/arrow_cut_down_blue"
+        android:drawableRight="@drawable/arrow_cut_down_gray"
         android:gravity="center|left"
+        android:textSize="@dimen/edge_big_plus"
         android:text="@string/from_time"
-        android:textColor="@color/black" />
+        android:textColor="@color/gray_measurement_screen" />
 
     <include
         layout="@layout/line_view_layout"
@@ -140,11 +143,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/edge_above"
-        android:drawableRight="@drawable/arrow_cut_down_blue"
+        android:drawableRight="@drawable/arrow_cut_down_gray"
         android:gravity="center|left"
         android:layout_marginLeft="@dimen/edge_normal_medium"
         android:text="@string/to_time"
-        android:textColor="@color/black" />
+        android:textSize="@dimen/edge_big_plus"
+        android:textColor="@color/gray_measurement_screen" />
 
     <include
         layout="@layout/line_view_layout"

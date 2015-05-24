@@ -203,12 +203,18 @@ public class DevicesListFragment extends Fragment implements ScreenShotable {
                     if (tv_list_is_empty.getVisibility() == View.VISIBLE) {
                         tv_list_is_empty.setVisibility(View.GONE);
                     }
+                    if (tv_no_matches_found.getVisibility() == View.GONE) {
+                        tv_no_matches_found.setVisibility(View.VISIBLE);
+                    }
                 } else {
                     if (expandable_list_view.getVisibility() == View.GONE) {
                         expandable_list_view.setVisibility(View.VISIBLE);
                     }
                     if (tv_list_is_empty.getVisibility() == View.GONE) {
                         tv_list_is_empty.setVisibility(View.VISIBLE);
+                    }
+                    if (tv_no_matches_found.getVisibility() == View.VISIBLE) {
+                        tv_no_matches_found.setVisibility(View.GONE);
                     }
                 }
             }

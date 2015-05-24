@@ -31,22 +31,25 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="1.0">
+            android:weightSum="1.0"
+            android:paddingLeft="@dimen/edge_big_minus"
+            android:paddingRight="@dimen/edge_big_minus">
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1" />
 
+
             <TextView
                 android:id="@+id/tv_bar_chart"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
-                android:drawableLeft="@drawable/bar_chart_ic"
+                android:drawableRight="@drawable/bar_chart_ic"
                 android:drawablePadding="@dimen/edge_above_medium"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/green_bright"
                 android:text="@string/bar_chart" />
 
             <View
@@ -59,11 +62,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.35"
-                android:drawableLeft="@drawable/line_chart_ic"
+                android:drawableRight="@drawable/line_chart_ic"
                 android:drawablePadding="@dimen/edge_above_medium"
                 android:gravity="center"
                 android:text="@string/line_chart"
-                android:textColor="@color/black"/>
+                android:textColor="@color/green_bright"/>
 
             <View
                 android:layout_width="0dp"

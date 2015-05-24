@@ -1,82 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:float="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_blue_green"
-    android:orientation="vertical"
-    android:padding="@dimen/edge_large_plus"
     tools:context=".SignUpActivity">
 
-    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/edge_normal_plus"
-        float:fletPaddingBottom="@dimen/edge_above_medium"
-        float:fletTextAppearance="@style/floatlabelededittext">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/edge_large_plus">
 
-        <EditText
-            android:id="@+id/et_user_name_sign_up"
-            style="@style/EditText_Style"
-            android:hint="@string/user_name"
-            android:inputType="text"
-            android:textColor="@color/white"
-            android:drawableRight="@drawable/arrow_cut_right"
-            android:textColorHint="@color/white" />
-    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+        <com.wrapp.floatlabelededittext.FloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/edge_normal_plus"
+            float:fletPaddingBottom="@dimen/edge_above_medium"
+            float:fletTextAppearance="@style/floatlabelededittext">
 
-    <com.wrapp.floatlabelededittext.FloatLabeledEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/edge_normal_plus"
-        float:fletPaddingBottom="@dimen/edge_normal_plus"
-        float:fletTextAppearance="@style/floatlabelededittext">
+            <EditText
+                android:id="@+id/et_user_name_sign_up"
+                style="@style/EditText_Style.White"
+                android:hint="@string/user_name"
+                android:inputType="text" />
+        </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
-        <EditText
-            android:id="@+id/et_password_sign_up"
-            style="@style/EditText_Style"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:textColor="@color/white"
-            android:drawableRight="@drawable/arrow_cut_right"
-            android:textColorHint="@color/white" />
+        <com.wrapp.floatlabelededittext.FloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/edge_normal_plus"
+            float:fletPaddingBottom="@dimen/edge_normal_plus"
+            float:fletTextAppearance="@style/floatlabelededittext">
 
-    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+            <EditText
+                android:id="@+id/et_password_sign_up"
+                style="@style/EditText_Style.White"
+                android:hint="@string/password"
+                android:inputType="textPassword" />
+        </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
-    <com.wrapp.floatlabelededittext.FloatLabeledEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/edge_normal_plus"
-        float:fletPaddingBottom="@dimen/edge_normal_plus"
-        float:fletTextAppearance="@style/floatlabelededittext">
+        <com.wrapp.floatlabelededittext.FloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/edge_normal_plus"
+            float:fletPaddingBottom="@dimen/edge_normal_plus"
+            float:fletTextAppearance="@style/floatlabelededittext">
 
-        <EditText
-            android:id="@+id/et_confirm_password_sign_up"
-            style="@style/EditText_Style"
-            android:hint="@string/confirm_password"
-            android:inputType="textPassword"
-            android:textColor="@color/white"
-            android:drawableRight="@drawable/arrow_cut_right"
-            android:textColorHint="@color/white" />
-    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            <EditText
+                android:id="@+id/et_confirm_password_sign_up"
+                style="@style/EditText_Style.White"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword" />
+        </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
         <Button
             android:id="@+id/tv_sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:background="@drawable/btn_orange_rounded_rect"
+            android:layout_marginTop="@dimen/edge_most"
             android:padding="@dimen/edge_above"
             android:text="@string/sign_up"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_large_plus"
-            android:textAllCaps="false"/>
-    </RelativeLayout>
-
-</LinearLayout>
+            android:textSize="@dimen/text_large_plus" />
+    </LinearLayout>
+</ScrollView>

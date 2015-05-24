@@ -3,21 +3,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text"
+    <LinearLayout
+        android:id="@+id/ll_tutorial_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Text"
-        android:textColor="@color/black"
-        android:drawableBottom="@drawable/screen_one"
-        android:gravity="center"
         android:layout_centerInParent="true"
-        android:textSize="30sp"/>
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableBottom="@drawable/list_symbol"
+            android:gravity="center"
+            android:text="Text"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_lets_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:weightSum="1.0"
+        android:visibility="visible">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.75"
+            android:src="@drawable/logo_small_with_text" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.25"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btn_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/start"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_orange_rounded_rect"
+                android:textSize="@dimen/text_huge_plus_plus" />
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

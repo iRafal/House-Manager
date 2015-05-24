@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.medvid.andriy.housemanager.dataset.User;
 
 public class CookiesManager {
@@ -18,7 +19,7 @@ public class CookiesManager {
         sharedPreferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
     }
 
-    public static void writeUserData(String userDataJson) {
+    public static boolean writeUserData(String userDataJson) {
         SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
         sharedPreferencesEditor.clear();
         sharedPreferencesEditor.putString(User.USER_DATA_JSON, userDataJson);
@@ -29,6 +30,7 @@ public class CookiesManager {
         } else {
             Log.d(COOKIES_MANAGER_TAG, "User data adding to cookies(loginUser) - failure");
         }
+        return commitSuccess;
     }
 
     public static boolean removeUserData() {
@@ -43,7 +45,26 @@ public class CookiesManager {
         if (sharedPreferences.contains(User.USER_DATA_JSON)) {
             userDataJson = sharedPreferences.getString(User.USER_DATA_JSON, "");
         }
-
         return userDataJson;
+    }
+
+    public static boolean updateUserName(String userName) {
+        if(userName == null || userName.isEmpty())  {
+            return false;
+        }
+        Gson gson = new Gson();
+        User user = gson.fromJson(getUserData(), User.class);
+        user.setName(userName);
+        return writeUserData(gson.toJson(user));
+    }
+
+    public static boolean updateUserPassword(String userPassword) {
+        if(userPassword == null || userPassword.isEmpty())  {
+            return false;
+        }
+        Gson gson = new Gson();
+        User user = gson.fromJson(getUserData(), User.class);
+        user.setPassword(userPassword);
+        return writeUserData(gson.toJson(user));
     }
 }

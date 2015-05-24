@@ -74,10 +74,10 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
 
             //Write saved data
            CookiesManager.writeUserData(userStringJsonObject);
-        }
 
-        //TODO: start in sign un thread by handler
-      startEntryActivity();
+            //TODO: start in sign un thread by handler
+            startEntryActivity();
+        }
     }
 
     private boolean validateInput(String userName, String password, String confirmPassword) {
@@ -85,18 +85,22 @@ public class SignUpActivity extends BaseActivity implements View.OnClickListener
         if(userName.isEmpty())  {
             validationSuccess = false;
             //
+            et_user_name_sign_up.setError(getString(R.string.please_enter_user_name));
         }
 
         if(password.isEmpty())  {
             validationSuccess = false;
             //
+            et_password_sign_up.setError(getString(R.string.please_enter_user_password));
         }
 
         if(confirmPassword.isEmpty())  {
             validationSuccess = false;
+            et_confirm_password_sign_up.setError(getString(R.string.please_confirm_password));
             //
         }   else if(!confirmPassword.equals(password))  {
             validationSuccess = false;
+            et_confirm_password_sign_up.setError(getString(R.string.confirm_password_must_be_repeated_exactly));
             //
         }
 

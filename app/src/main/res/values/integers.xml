@@ -3,4 +3,5 @@
     <integer name="ripple_view_animation_duration">3000</integer>
     <integer name="ripple_amount">6</integer>
     <integer name="ripple_scale">6</integer>
+    <integer name="swipe_closing_distance">50</integer>
 </resources>

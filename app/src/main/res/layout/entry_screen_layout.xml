@@ -18,7 +18,7 @@
         android:layout_height="0dp"
         android:src="@drawable/logo_small_with_text"
         android:layout_gravity="center"
-       android:layout_weight="0.5"/>
+        android:layout_weight="0.5"/>
 
     <View
         android:layout_width="match_parent"

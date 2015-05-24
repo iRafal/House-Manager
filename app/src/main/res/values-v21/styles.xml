@@ -16,13 +16,20 @@
     </style>
 
     <style name="EditText_Style" parent="@android:style/Widget.EditText">
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:singleLine">true</item>
         <item name="android:textSize">@dimen/text_large</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:backgroundTint">@color/gray_brighter</item>
+        <item name="android:backgroundTint">@color/green_dark</item>
     </style>
+
+    <style name="EditText_Style.White" parent="EditText_Style">
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:drawableRight">@drawable/arrow_cut_right</item>
+        <item name="android:textColorHint">@color/white</item>
+    </style>
+
 
     <style name="SignInAndUpTheme" parent="SliderActionBarTheme">
         <item name="android:homeAsUpIndicator">@drawable/ic_back_arrow_light</item>

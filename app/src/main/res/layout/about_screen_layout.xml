@@ -1,29 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/edge_large_most"
+    android:paddingRight="@dimen/edge_large_most"
+    android:weightSum="1.0">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.6"
+        android:src="@drawable/logo_the_most_smaller_with_text" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="1.0">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo_the_most_smaller_with_text"
-            android:layout_gravity="center_horizontal"/>
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:orientation="vertical">
 
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/edge_tiny"
-            android:layout_weight="0.005"
+            android:layout_marginBottom="@dimen/edge_above"
             android:background="@color/blue_darker" />
 
-        <include
-            layout="@layout/about_info_layout"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.395" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/edge_above_medium"
+            android:text="@string/baccalaureate_theme_top"
+            android:layout_marginBottom="@dimen/edge_normal_plus"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_mini_normal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/edge_normal_plus"
+            android:text="@string/baccalaureate_theme"
+            android:textColor="@color/green_bright"
+            android:textSize="@dimen/edge_almost_large" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/edge_above"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edge_above_medium"
+                    android:text="@string/made_by_string"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_mini_below"
+                    android:layout_marginBottom="@dimen/edge_normal_plus"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/developer_name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/edge_above"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edge_above_medium"
+                    android:text="@string/university_name"
+                    android:gravity="right"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_mini_below"
+                    android:layout_marginBottom="@dimen/edge_normal_plus"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edge_normal_plus"
+                    android:text="@string/department_string"
+                    android:textColor="@color/gray"
+                    android:gravity="right"
+                    android:textSize="@dimen/text_mini_below" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
     </LinearLayout>
-</ScrollView>
+
+</LinearLayout>
