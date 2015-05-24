@@ -23,7 +23,6 @@ public class TutorialActivity extends BaseActivity {
         setContentView(R.layout.tutorial_screen_layout);
 
         ButterKnife.inject(this);
-
         initViews();
     }
 
@@ -33,10 +32,15 @@ public class TutorialActivity extends BaseActivity {
         SpringIndicator springIndicator = ButterKnife.findById(this,R.id.indicator);
 
         PagerManager manager = new PagerManager();
-        manager.addFragment(TutorialFragmentItem.instantiate(TutorialFragmentItem.DESCRIPTION), "1");
-        manager.addFragment(TutorialFragmentItem.instantiate(TutorialFragmentItem.DESCRIPTION), "2");
-        manager.addFragment(TutorialFragmentItem.instantiate(TutorialFragmentItem.DESCRIPTION), "3");
-        manager.addFragment(TutorialFragmentItem.instantiate(TutorialFragmentItem.START), "4");
+        manager.addFragment(TutorialFragmentItem.instantiateDescriptionFragment(
+                getString(R.string.tutorial_page_1_description), R.drawable.list_symbol), "1");
+        manager.addFragment(TutorialFragmentItem.instantiateDescriptionFragment(
+                getString(R.string.tutorial_page_2_description), R.drawable.list_symbol), "2");
+        manager.addFragment(TutorialFragmentItem.instantiateDescriptionFragment(
+                getString(R.string.tutorial_page_3_description), R.drawable.list_symbol), "3");
+        manager.addFragment(TutorialFragmentItem.instantiateDescriptionFragment(
+                getString(R.string.tutorial_page_4_description), R.drawable.list_symbol), "4");
+        manager.addFragment(TutorialFragmentItem.instantiateStartFragment(), "5");
 
         ModelPagerAdapter adapter = new ModelPagerAdapter(getSupportFragmentManager(), manager);
         viewPager.setAdapter(adapter);

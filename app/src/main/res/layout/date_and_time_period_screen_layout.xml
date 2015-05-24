@@ -43,7 +43,7 @@
             android:layout_weight="0.5"
             android:text="@string/single_date"
             android:gravity="left|center"
-            android:textColor="@color/gray_measurement_screen"
+            android:textColor="@color/green_bright"
             android:paddingLeft="@dimen/edge_normal"/>
     </LinearLayout>
 
@@ -57,7 +57,7 @@
         android:drawableRight="@drawable/arrow_cut_down_gray"
         android:gravity="center|left"
         android:text="@string/from_date"
-        android:textColor="@color/gray_measurement_screen" />
+        android:textColor="@color/green_bright" />
 
     <include
         layout="@layout/line_view_layout"
@@ -87,7 +87,7 @@
         android:drawableRight="@drawable/arrow_cut_down_gray"
         android:gravity="center|left"
         android:text="@string/to_date"
-        android:textColor="@color/gray_measurement_screen" />
+        android:textColor="@color/green_bright" />
 
     <include
         layout="@layout/line_view_layout"
@@ -118,7 +118,7 @@
         android:gravity="center|left"
         android:textSize="@dimen/edge_big_plus"
         android:text="@string/from_time"
-        android:textColor="@color/gray_measurement_screen" />
+        android:textColor="@color/green_bright" />
 
     <include
         layout="@layout/line_view_layout"
@@ -148,7 +148,7 @@
         android:layout_marginLeft="@dimen/edge_normal_medium"
         android:text="@string/to_time"
         android:textSize="@dimen/edge_big_plus"
-        android:textColor="@color/gray_measurement_screen" />
+        android:textColor="@color/green_bright" />
 
     <include
         layout="@layout/line_view_layout"

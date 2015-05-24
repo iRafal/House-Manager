@@ -1,14 +1,11 @@
 <resources>
     <string name="app_name">HouseManager</string>
 
-    <string name="action_settings">Settings</string>
-
     <string name="devices">Devices</string>
     <string name="settings">Settings</string>
     <string name="about">About</string>
 
     <string name="empty_str"></string>
-    <string name="navigation">Navigation</string>
     <string name="enter_device_name">Enter device name...</string>
     <string name="sign_out">Sign out</string>
     <string name="sign_in">Sign in</string>
@@ -27,9 +24,6 @@
     <string name="baccalaureate_theme_top">Baccalaureate work theme</string>
     <string name="baccalaureate_theme">Software development subsystem of intelligent tools house management</string>
     <string name="android_house_manager">Android House Manager</string>
-    <string name="avatar">Avatar</string>
-    <string name="choose_avatar">Choose Avatar</string>
-    <string name="take_a_picture">Take a picture</string>
     <string name="confirm_new_password">Confirm new password</string>
     <string name="change_user_name">Change User Name</string>
     <string name="change_user_password">Change user password</string>
@@ -61,7 +55,7 @@
     <string name="single_time">Single Time</string>
     <string name="please_select_second_date">Please select second date</string>
     <string name="please_select_second_time">Please select Second time</string>
-    <string name="bar_chart">BarChart</string>
+    <string name="bar_chart">Bar Chart</string>
     <string name="line_chart">Line Chart</string>
     <string name="room">Room</string>
     <string name="status">Status</string>
@@ -102,6 +96,10 @@
     <string name="type">Type</string>
     <string name="university_name">National University\nLviv Polytechnic</string>
     <string name="start">Start</string>
+    <string name="tutorial_page_1_description">Easy control your house using android devices.</string>
+    <string name="tutorial_page_2_description">Create and manage accounts for independent control.</string>
+    <string name="tutorial_page_3_description">Manage every single device. Easy get stored information.</string>
+    <string name="tutorial_page_4_description">Use voice control possibilities for quick setup.</string>
 
 </resources>
 

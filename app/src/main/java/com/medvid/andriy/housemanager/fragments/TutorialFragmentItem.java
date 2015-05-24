@@ -22,9 +22,11 @@ import butterknife.InjectView;
 
 public class TutorialFragmentItem extends Fragment implements View.OnClickListener {
 
-    public static final String DESCRIPTION = "TutorialFragmentItem.Description";
-    public static final String START = "TutorialFragmentItem.Start";
+    private static final String DESCRIPTION = "TutorialFragmentItem.DESCRIPTION";
+    private static final String START = "TutorialFragmentItem.START";
 
+    private String mTitleString = null;
+    private int mImageResId = 0;
     private String mViewMode = null;
 
     private Activity mActivity = null;
@@ -41,9 +43,17 @@ public class TutorialFragmentItem extends Fragment implements View.OnClickListen
     @InjectView(R.id.btn_start)
     Button btn_start;
 
-    public static Fragment instantiate(String viewMode) {
+    public static Fragment instantiateStartFragment() {
         TutorialFragmentItem tutorialFragmentItem = new TutorialFragmentItem();
-        tutorialFragmentItem.setViewMode(viewMode);
+        tutorialFragmentItem.setViewMode(START);
+        return tutorialFragmentItem;
+    }
+
+    public static Fragment instantiateDescriptionFragment(String title, int imageResId) {
+        TutorialFragmentItem tutorialFragmentItem = new TutorialFragmentItem();
+        tutorialFragmentItem.setImageResId(imageResId);
+        tutorialFragmentItem.setTitleString(title);
+        tutorialFragmentItem.setViewMode(DESCRIPTION);
         return tutorialFragmentItem;
     }
 
@@ -76,6 +86,11 @@ public class TutorialFragmentItem extends Fragment implements View.OnClickListen
 
     private void initViews()    {
         btn_start.setOnClickListener(this);
+
+        if(mViewMode == DESCRIPTION)    {
+            tv_description.setText(mTitleString);
+            tv_description.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, mImageResId);
+        }
     }
 
     @Override
@@ -96,7 +111,15 @@ public class TutorialFragmentItem extends Fragment implements View.OnClickListen
         mActivity = activity;
     }
 
-    public void setViewMode(String mViewMode) {
-        this.mViewMode = mViewMode;
+    public void setTitleString(String titleString) {
+        this.mTitleString = titleString;
+    }
+
+    public void setImageResId(int imageResId) {
+        this.mImageResId = imageResId;
+    }
+
+    public void setViewMode(String viewMode) {
+        this.mViewMode = viewMode;
     }
 }

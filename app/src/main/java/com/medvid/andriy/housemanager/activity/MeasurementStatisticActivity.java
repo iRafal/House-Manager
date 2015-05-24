@@ -380,14 +380,16 @@ public class MeasurementStatisticActivity extends BaseActivity implements View.O
 
     private void toggleDateViewsState(boolean isSingleDate) {
         int color = 0;
+        int colorTitle = 0;
 
         if (isSingleDate) {
-            color = R.color.gray_bright;
+            colorTitle = color = R.color.gray_bright;
         } else {
-            color = R.color.black;
+            color = R.color.green_bright;
+            colorTitle = R.color.black;
         }
 
-        tv_second_date_select_title.setTextColor(getResources().getColor(color));
+        tv_second_date_select_title.setTextColor(getResources().getColor(colorTitle));
         tv_second_date_select_title.setEnabled(!isSingleDate);
 
         tv_second_date_selector.setTextColor(getResources().getColor(color));
