@@ -5,21 +5,26 @@
 
     <LinearLayout
         android:id="@+id/ll_tutorial_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="vertical"
+        android:weightSum="1.0"
+        android:padding="@dimen/edge_above"
         android:visibility="visible">
-
         <TextView
             android:id="@+id/tv_description"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:gravity="center"
-            android:text="Text"
             android:textColor="@color/black"
-            android:textSize="30sp" />
+            android:textSize="@dimen/text_medium"
+            android:layout_weight="0.75"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.25"/>
     </LinearLayout>
 
     <LinearLayout

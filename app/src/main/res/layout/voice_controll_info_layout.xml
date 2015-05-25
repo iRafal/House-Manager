@@ -13,8 +13,7 @@
         android:text="@string/voice_control_info_title"
         android:textColor="@color/black"
         android:padding="@dimen/edge_above_medium"
-        android:textSize="@dimen/text_normal_medium"
-        android:gravity="center"/>
+        android:textSize="@dimen/text_normal" />
 
     <View
         android:layout_width="match_parent"

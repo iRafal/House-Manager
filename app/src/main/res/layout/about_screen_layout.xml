@@ -7,18 +7,17 @@
     android:paddingRight="@dimen/edge_large_most"
     android:weightSum="1.0">
 
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.6"
+        android:layout_weight="0.55"
         android:src="@drawable/logo_the_most_smaller_with_text" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.4"
+        android:layout_weight="0.45"
         android:orientation="vertical">
 
         <View
@@ -42,12 +41,12 @@
             android:layout_marginTop="@dimen/edge_normal_plus"
             android:text="@string/baccalaureate_theme"
             android:textColor="@color/green_bright"
-            android:textSize="@dimen/edge_almost_large" />
+            android:textSize="@dimen/edge_big_plus" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/edge_above"
+            android:layout_marginTop="@dimen/edge_above_medium"
             android:orientation="horizontal">
 
             <LinearLayout

@@ -75,8 +75,8 @@
     <string name="search_empty_message">No matches found</string>
     <string name="no_devices_found">No devices Found</string>
     <string name="day_and_full_month_name_and_year_date_format">dd MMMM yyyy</string>
-    <string name="selected_date_can_not_be_the_same_as_second_date">Selected date can\'t be the same as second Date</string>
-    <string name="selected_date_can_not_be_bigger_then_second_date">Selected date can\'t be bigger than second Date</string>
+    <string name="selected_date_can_not_be_the_same_as_second_date">Selected date can\'t be the same as Second Date</string>
+    <string name="selected_date_can_not_be_bigger_then_second_date">Selected date can\'t be bigger than Second Date</string>
     <string name="selected_date_can_not_be_the_same_as_first_date">Selected date can\'t be the same as First Date</string>
     <string name="selected_date_can_not_lessr_then_first_date">Selected date can\'t be less than First Date</string>
     <string name="selected_time_can_not_be_the_same_as_first_time">Selected time can\'t be the same as First Time</string>
