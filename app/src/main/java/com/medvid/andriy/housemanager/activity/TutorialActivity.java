@@ -37,7 +37,7 @@ public class TutorialActivity extends BaseActivity {
         manager.addFragment(TutorialFragmentItem.instantiateDescriptionFragment(
                 getString(R.string.tutorial_page_2_description), R.drawable.tutorial_page_2), "2");
         manager.addFragment(TutorialFragmentItem.instantiateDescriptionFragment(
-                getString(R.string.tutorial_page_3_description), R.drawable.list_symbol), "3");
+                getString(R.string.tutorial_page_3_description), R.drawable.tutorial_page_3), "3");
         manager.addFragment(TutorialFragmentItem.instantiateDescriptionFragment(
                 getString(R.string.tutorial_page_4_description), R.drawable.tutorial_page_4), "4");
         manager.addFragment(TutorialFragmentItem.instantiateStartFragment(), "5");

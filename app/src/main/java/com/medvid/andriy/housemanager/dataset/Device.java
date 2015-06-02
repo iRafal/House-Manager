@@ -52,7 +52,6 @@ public class Device {
     public void setDeviceName(String mDeviceName) {
         this.mDeviceName = mDeviceName;
     }
-
     public String getDeviceType() {
         return mDeviceType;
     }
