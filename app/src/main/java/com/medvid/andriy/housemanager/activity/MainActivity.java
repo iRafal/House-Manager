@@ -40,7 +40,6 @@ import yalantis.com.sidemenu.interfaces.ScreenShotable;
 import yalantis.com.sidemenu.model.SlideMenuItem;
 import yalantis.com.sidemenu.util.ViewAnimator;
 
-
 public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnimatorListener, ScreenShotable {
 
     private static final String CLOSE = "Close";
@@ -62,6 +61,7 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_screen_layout);
 
