@@ -22,4 +22,11 @@ public class ImageUtils {
         }
         return mContext.getResources().getDrawable(resId);
     }
+
+    public Drawable getEditTextErrorDrawable(int resId)  {
+        Drawable drawable = getDrawableFromResource(resId);
+        drawable.setBounds(0, 0,
+                drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        return drawable;
+    }
 }

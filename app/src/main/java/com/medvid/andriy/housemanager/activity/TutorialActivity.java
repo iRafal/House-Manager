@@ -33,13 +33,13 @@ public class TutorialActivity extends BaseActivity {
 
         PagerManager manager = new PagerManager();
         manager.addFragment(TutorialFragmentItem.instantiateDescriptionFragment(
-                getString(R.string.tutorial_page_1_description), R.drawable.list_symbol), "1");
+                getString(R.string.tutorial_page_1_description), R.drawable.tutorial_page_1), "1");
         manager.addFragment(TutorialFragmentItem.instantiateDescriptionFragment(
-                getString(R.string.tutorial_page_2_description), R.drawable.list_symbol), "2");
+                getString(R.string.tutorial_page_2_description), R.drawable.tutorial_page_2), "2");
         manager.addFragment(TutorialFragmentItem.instantiateDescriptionFragment(
                 getString(R.string.tutorial_page_3_description), R.drawable.list_symbol), "3");
         manager.addFragment(TutorialFragmentItem.instantiateDescriptionFragment(
-                getString(R.string.tutorial_page_4_description), R.drawable.list_symbol), "4");
+                getString(R.string.tutorial_page_4_description), R.drawable.tutorial_page_4), "4");
         manager.addFragment(TutorialFragmentItem.instantiateStartFragment(), "5");
 
         ModelPagerAdapter adapter = new ModelPagerAdapter(getSupportFragmentManager(), manager);

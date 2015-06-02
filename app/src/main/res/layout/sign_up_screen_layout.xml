@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue_green"
+    android:background="@color/input_screens_background"
     tools:context=".SignUpActivity">
 
     <LinearLayout
@@ -22,7 +22,7 @@
 
             <EditText
                 android:id="@+id/et_user_name_sign_up"
-                style="@style/EditText_Style.White"
+                style="@style/EditText_Style.Green"
                 android:hint="@string/user_name"
                 android:inputType="text" />
         </com.wrapp.floatlabelededittext.FloatLabeledEditText>
@@ -36,7 +36,7 @@
 
             <EditText
                 android:id="@+id/et_password_sign_up"
-                style="@style/EditText_Style.White"
+                style="@style/EditText_Style.Green"
                 android:hint="@string/password"
                 android:inputType="textPassword" />
         </com.wrapp.floatlabelededittext.FloatLabeledEditText>
@@ -50,19 +50,22 @@
 
             <EditText
                 android:id="@+id/et_confirm_password_sign_up"
-                style="@style/EditText_Style.White"
+                style="@style/EditText_Style.Green"
                 android:hint="@string/confirm_password"
                 android:inputType="textPassword" />
         </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
         <Button
-            android:id="@+id/tv_sign_up"
+            android:id="@+id/btn_sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/btn_orange_rounded_rect"
+            android:background="@drawable/button"
+            android:paddingTop="@dimen/edge_big"
+            android:paddingBottom="@dimen/edge_big"
+            android:paddingLeft="@dimen/edge_large_plus"
+            android:paddingRight="@dimen/edge_large_plus"
             android:layout_marginTop="@dimen/edge_most"
-            android:padding="@dimen/edge_above"
             android:text="@string/sign_up"
             android:textAllCaps="false"
             android:textColor="@color/white"

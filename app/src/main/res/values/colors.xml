@@ -25,10 +25,11 @@
 
     <color name="green_dark_plus">#00a47f</color>
 
-    <color name="indicator_1">#55B3C2</color>
-    <color name="indicator_2">#64A4A4</color>
-    <color name="indicator_3">#66D7B9</color>
-    <color name="indicator_4">#FDBC7D</color>
+    <color name="indicator_1">#1e73ca</color>
+    <color name="indicator_2">#59afba</color>
+    <color name="indicator_3">#64a5a4</color>
+    <color name="indicator_4">#65d5b8</color>
+    <color name="indicator_5">#97c03c</color>
 
     <color name="ripple_view_color">#049bcd</color>
     <color name="floating_button_color_normal">#efbf00</color>
@@ -46,4 +47,8 @@
     <color name="green_bright">#8dc53f</color>
 
     <color name="gray_devices_screen_text">#3d3c3c</color>
+    <color name="tutorial_page_text_color">#9d9c9c</color>
+
+    <color name="button_color">#f2b100</color>
+    <color name="input_screens_background">#ecefef</color>
 </resources>

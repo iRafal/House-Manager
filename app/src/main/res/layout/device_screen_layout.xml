@@ -164,11 +164,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:background="@drawable/btn_orange_rounded_rect"
+            android:background="@drawable/button"
             android:padding="@dimen/edge_above"
             android:text="@string/view_statistics"
             android:textAllCaps="false"
-            android:textColor="@color/light_blue_green"
+            android:textColor="@color/white"
             android:textSize="@dimen/text_normal_medium" />
     </RelativeLayout>
 

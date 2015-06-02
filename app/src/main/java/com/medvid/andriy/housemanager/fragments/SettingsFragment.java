@@ -3,6 +3,7 @@ package com.medvid.andriy.housemanager.fragments;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ import android.widget.Toast;
 import com.medvid.andriy.housemanager.R;
 import com.medvid.andriy.housemanager.utils.CookiesManager;
 import com.medvid.andriy.housemanager.utils.DialogUtils;
+import com.medvid.andriy.housemanager.utils.ImageUtils;
 import com.zzt.inbox.interfaces.OnDragStateChangeListener;
 import com.zzt.inbox.widget.InboxBackgroundScrollView;
 import com.zzt.inbox.widget.InboxLayoutBase;
@@ -42,6 +45,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     private ActionBar mActionBar = null;
     private DialogUtils mDialogUtils = null;
     private Bitmap bitmap;
+    private Drawable errorIc = null;
+    private ImageUtils mImageUtils = null;
 
     private OnDragStateChangeListener mEmptyOnDragStateChangeListener
             = new OnDragStateChangeListener() {
@@ -124,6 +129,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         mActionBar = mActionBarActivity.getSupportActionBar();
         mActionBar.setTitle(R.string.settings);
         mActionBar.invalidateOptionsMenu();
+        errorIc = mImageUtils.getEditTextErrorDrawable(R.drawable.err_ic);
         initViews();
     }
 
@@ -132,6 +138,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         super.onAttach(activity);
         mActionBarActivity = (ActionBarActivity) activity;
         mDialogUtils = new DialogUtils(mActionBarActivity);
+        mImageUtils = new ImageUtils(activity);
     }
 
     private void initViews() {
@@ -225,7 +232,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         boolean validationSuccess = true;
         if(userName.isEmpty())  {
             validationSuccess = false;
-            et_new_user_name.setError(getString(R.string.please_enter_user_name));
+            et_new_user_name.setError(getString(R.string.please_enter_user_name), errorIc);
         }
         return validationSuccess;
     }
@@ -234,15 +241,15 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         boolean validationSuccess = true;
         if(password.isEmpty())  {
             validationSuccess = false;
-            et_enter_new_password.setError(getString(R.string.please_enter_user_password));
+            et_enter_new_password.setError(getString(R.string.please_enter_user_password), errorIc);
         }
 
         if(confirmPassword.isEmpty())  {
             validationSuccess = false;
-            et_confirm_new_password.setError(getString(R.string.please_confirm_password));
+            et_confirm_new_password.setError(getString(R.string.please_confirm_password), errorIc);
         }   else if(!confirmPassword.equals(password))  {
             validationSuccess = false;
-            et_confirm_new_password.setError(getString(R.string.confirm_password_must_be_repeated_exactly));
+            et_confirm_new_password.setError(getString(R.string.confirm_password_must_be_repeated_exactly), errorIc);
         }
         return validationSuccess;
     }

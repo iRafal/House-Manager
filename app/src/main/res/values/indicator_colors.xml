@@ -5,5 +5,6 @@
         <item>@color/indicator_2</item>
         <item>@color/indicator_3</item>
         <item>@color/indicator_4</item>
+        <item>@color/indicator_5</item>
     </array>
 </resources>

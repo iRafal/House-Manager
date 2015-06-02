@@ -1,6 +1,7 @@
 package com.medvid.andriy.housemanager.activity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import com.google.gson.Gson;
 import com.medvid.andriy.housemanager.R;
 import com.medvid.andriy.housemanager.dataset.User;
 import com.medvid.andriy.housemanager.utils.CookiesManager;
+import com.medvid.andriy.housemanager.utils.ImageUtils;
 import com.medvid.andriy.housemanager.utils.SlidrHelper;
 
 import java.util.Random;
@@ -28,9 +30,11 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         EditText et_user_name_sign_in;
     @InjectView(R.id.et_password_sign_in)
         EditText et_password_sign_in;
-    @InjectView(R.id.tv_sign_in)
-        Button tv_sign_in;
+    @InjectView(R.id.btn_sign_in)
+        Button btn_sign_in;
 
+    private Drawable errorIc = null;
+    private ImageUtils mImageUtils = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +47,10 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void initViews()    {
-        tv_sign_in.setOnClickListener(this);
+        btn_sign_in.setOnClickListener(this);
+
+        mImageUtils = new ImageUtils(this);
+        errorIc = mImageUtils.getEditTextErrorDrawable(R.drawable.err_ic);
     }
 
     private void signInAction() {
@@ -76,13 +83,13 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         if(userName.isEmpty())  {
             validationSuccess = false;
             //
-            et_user_name_sign_in.setError(getString(R.string.please_enter_user_name));
+            et_user_name_sign_in.setError(getString(R.string.please_enter_user_name), errorIc);
         }
 
         if(password.isEmpty())  {
             validationSuccess = false;
             //
-            et_password_sign_in.setError(getString(R.string.please_enter_user_password));
+            et_password_sign_in.setError(getString(R.string.please_enter_user_password), errorIc);
         }
         return validationSuccess;
     }
@@ -97,7 +104,7 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.tv_sign_in:
+            case R.id.btn_sign_in:
                 signInAction();
                 break;
         }

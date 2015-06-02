@@ -3,7 +3,7 @@
 <io.codetail.widget.RevealFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue_green">
+    android:background="@color/input_screens_background">
 
     <FrameLayout
         android:id="@+id/fl_animation_container"
@@ -29,12 +29,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:background="@null"
-                    android:drawableRight="@drawable/arrow_cut_right"
+                    android:drawableRight="@drawable/arrow_green"
                     android:gravity="left"
                     android:padding="@dimen/edge_big"
                     android:text="@string/user_name"
                     android:textSize="@dimen/text_normal_medium"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/status_bar_gray" />
 
                 <View
                     android:layout_width="match_parent"
@@ -49,12 +49,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:background="@null"
-                    android:drawableRight="@drawable/arrow_cut_right"
+                    android:drawableRight="@drawable/arrow_green"
                     android:gravity="left"
                     android:padding="@dimen/edge_big"
                     android:textSize="@dimen/text_normal_medium"
                     android:text="@string/change_user_password"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/status_bar_gray" />
 
                 <View
                     android:layout_width="match_parent"
@@ -86,9 +86,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:background="@drawable/btn_orange_rounded_rect"
+                            android:background="@drawable/button"
                             android:textAllCaps="false"
-                            android:padding="@dimen/edge_above_minus"
+                            android:paddingTop="@dimen/edge_medium"
+                            android:paddingBottom="@dimen/edge_medium"
+                            android:paddingLeft="@dimen/edge_huge_minus"
+                            android:paddingRight="@dimen/edge_huge_minus"
                             android:text="@string/sign_out" />
                     </RelativeLayout>
 

@@ -3,29 +3,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/ll_tutorial_description"
+    <RelativeLayout
+        android:id="@+id/rl_tutorial_description"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:gravity="center"
         android:orientation="vertical"
-        android:weightSum="1.0"
-        android:padding="@dimen/edge_above"
+        android:paddingBottom="@dimen/edge_above"
+        android:paddingTop="@dimen/edge_huge_minus"
+        android:paddingLeft="@dimen/edge_above"
+        android:paddingRight="@dimen/edge_above"
         android:visibility="visible">
+
         <TextView
             android:id="@+id/tv_description"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/edge_big_large"
             android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_medium"
-            android:layout_weight="0.75"/>
-        <View
+            android:paddingLeft="@dimen/edge_normal"
+            android:paddingRight="@dimen/edge_normal"
+            android:textColor="@color/tutorial_page_text_color"
+            android:textSize="@dimen/text_normal_medium"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:id="@+id/iv_center_image"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.25"/>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/ll_lets_start"
@@ -33,8 +43,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:weightSum="1.0"
-        android:visibility="gone">
+        android:visibility="visible"
+        android:weightSum="1.0">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -53,12 +63,16 @@
                 android:id="@+id/btn_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                android:paddingBottom="@dimen/edge_above_medium"
+                android:paddingTop="@dimen/edge_above_medium"
+                android:paddingLeft="@dimen/edge_most_minus"
+                android:paddingRight="@dimen/edge_most_minus"
+                android:gravity="center"
                 android:text="@string/start"
                 android:textAllCaps="false"
-                android:gravity="center"
                 android:textColor="@color/white"
-                android:background="@drawable/btn_orange_rounded_rect"
-                android:textSize="@dimen/text_huge_plus_plus" />
+                android:textSize="@dimen/text_almost_large" />
         </RelativeLayout>
 
     </LinearLayout>

@@ -8,7 +8,7 @@
     <string name="empty_str"></string>
     <string name="enter_device_name">Введіть назву пристрою...</string>
     <string name="sign_out">Вийти</string>
-    <string name="sign_in">Увіти</string>
+    <string name="sign_in">Увійти</string>
     <string name="sign_up">Реєстрація</string>
     <string name="new_user_name">Нове ім\'я користувача</string>
     <string name="user_name">Ім\'я користувача</string>
@@ -24,7 +24,7 @@
     <string name="baccalaureate_theme_top">Тема бакалаврської роботи</string>
     <string name="baccalaureate_theme">Розроблення програмного забезпечення підсистеми управління інтелектуальними засобами житлового приміщення</string>
     <string name="android_house_manager">Android House Manager</string>
-    <string name="confirm_new_password">Підтвердіть новий пароль</string>
+    <string name="confirm_new_password">Підтвердіть пароль</string>
     <string name="change_user_name">Змініть ім\'я користувача</string>
     <string name="change_user_password">Змініть пароль користувача</string>
 

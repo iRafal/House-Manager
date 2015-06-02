@@ -40,7 +40,8 @@
             android:text="@string/sign_in"
             android:textSize="@dimen/text_normal_plus"
             android:textStyle="bold"
-            android:background="@drawable/rounded_left_btn"
+            android:padding="10dp"
+            android:background="@drawable/left_btn"
             android:textColor="@color/white"
             android:layout_marginRight="@dimen/edge_normal_plus"/>
 
@@ -52,7 +53,8 @@
             android:textStyle="bold"
             android:text="@string/sign_up"
             android:textSize="@dimen/text_normal_plus"
-            android:background="@drawable/rounded_right_btn"
+            android:padding="@dimen/edge_normal_plus"
+            android:background="@drawable/right_btn"
             android:textColor="@color/white"/>
     </LinearLayout>
 </LinearLayout>

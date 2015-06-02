@@ -9,13 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.medvid.andriy.housemanager.R;
 import com.medvid.andriy.housemanager.activity.EntryActivity;
-
-import org.w3c.dom.Text;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -31,11 +31,14 @@ public class TutorialFragmentItem extends Fragment implements View.OnClickListen
 
     private Activity mActivity = null;
 
-    @InjectView(R.id.ll_tutorial_description)
-    LinearLayout ll_tutorial_description;
+    @InjectView(R.id.rl_tutorial_description)
+    RelativeLayout ll_tutorial_description;
 
     @InjectView(R.id.tv_description)
     TextView tv_description;
+
+    @InjectView(R.id.iv_center_image)
+    ImageView iv_center_image;
 
     @InjectView(R.id.ll_lets_start)
     LinearLayout ll_lets_start;
@@ -89,7 +92,7 @@ public class TutorialFragmentItem extends Fragment implements View.OnClickListen
 
         if(mViewMode == DESCRIPTION)    {
             tv_description.setText(mTitleString);
-            tv_description.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, mImageResId);
+            iv_center_image.setImageResource(mImageResId);
         }
     }
 

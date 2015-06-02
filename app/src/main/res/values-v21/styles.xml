@@ -30,6 +30,11 @@
         <item name="android:textColorHint">@color/white</item>
     </style>
 
+    <style name="EditText_Style.Green" parent="EditText_Style">
+        <item name="android:textColor">@color/green_dark_plus</item>
+        <item name="android:textColorHint">@color/green_dark_plus</item>
+        <item name="android:drawableRight">@drawable/arrow_green</item>
+    </style>
 
     <style name="SignInAndUpTheme" parent="SliderActionBarTheme">
         <item name="android:homeAsUpIndicator">@drawable/ic_back_arrow_light</item>
@@ -76,6 +81,6 @@
     </style>
 
     <style name="floatlabelededittext">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/light_blue_green</item>
     </style>
 </resources>
