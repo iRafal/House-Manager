@@ -3,7 +3,9 @@ package com.medvid.andriy.housemanager.voice_recognition;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.medvid.andriy.housemanager.R;
 import com.medvid.andriy.housemanager.utils.FileUtils;
 
 import java.io.File;
@@ -135,13 +137,15 @@ public class RecognitionManager implements RecognitionListener {
         showLog("onEndOfSpeech");
 
         if (mRecognitionListener != null) {
-            if(mRecognizedString!=null && mCommandsList.contains(mRecognizedString)) {
+            if(mCommandsList.contains(mRecognizedString)) {
 
                 mRecognitionListener.onCommandRecognized(mRecognizedString);
                 pauseRecognition();
                 mRecognitionListener.onRecognitionFinished(new String(mRecognizedString));
                 showLog("recognized text = " + mRecognizedString);
                 mRecognizedString = null;
+            }   else    {
+                Toast.makeText(mContext, mContext.getString(R.string.try_again), Toast.LENGTH_SHORT).show();
             }
         }
     }

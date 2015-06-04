@@ -4,7 +4,7 @@ import android.media.AudioManager;
 import android.media.ToneGenerator;
 
 /**
- * Created by ¿Ì‰≥È on 6/4/2015.
+ * Created by –ê–Ω–¥—Ä—ñ–π on 6/4/2015.
  */
 public class AudioUtils {
     public static void startPipTone(int duration) {
