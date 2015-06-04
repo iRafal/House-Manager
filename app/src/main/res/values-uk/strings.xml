@@ -42,7 +42,6 @@
     <string name="witing_for_command">Очікування команди...</string>
     <string name="voice_control_info">Голосове керування</string>
     <string name="voice_control_info_title">Використовуйте мікрофон для керування пристроями, використовуючи команди з спику</string>
-    <string name="swipe_up_down_to_close">Проведіть Вверх/Вниз що Закрити</string>
     <string name="measurement_statistic">Статистика вимірювань</string>
     <string name="measurement_time_limits">Часові межі вимірювання</string>
     <string name="please_select_first_date">Вкажіть Першу дату</string>
@@ -105,6 +104,7 @@
     <string name="initialization">Ініціалізація...</string>
     <string name="voice_recognition">Голосове розпізнавання</string>
     <string name="try_again">Спробуйте ще раз</string>
+    <string name="edit_profile">Редагування профілю</string>
 
 </resources>
 

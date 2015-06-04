@@ -42,7 +42,6 @@
     <string name="witing_for_command">Waiting for command...</string>
     <string name="voice_control_info">Voice control info</string>
     <string name="voice_control_info_title">Use device microphone for managing devices by commands in the list below.</string>
-    <string name="swipe_up_down_to_close">Swipe Up/Down To Close</string>
     <string name="measurement_statistic">Measurement statistic</string>
     <string name="measurement_time_limits">Measurement time limits</string>
     <string name="please_select_first_date">Please select first date</string>
@@ -105,6 +104,7 @@
     <string name="initialization">Initialization...</string>
     <string name="voice_recognition">Voice recognition</string>
     <string name="try_again">Try again</string>
+    <string name="edit_profile">Edit profile</string>
 
 </resources>
 

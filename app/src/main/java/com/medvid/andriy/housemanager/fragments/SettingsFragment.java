@@ -1,9 +1,9 @@
 package com.medvid.andriy.housemanager.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,23 +12,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.medvid.andriy.housemanager.R;
-import com.medvid.andriy.housemanager.utils.CookiesManager;
+import com.medvid.andriy.housemanager.activity.EditProfileActivity;
 import com.medvid.andriy.housemanager.utils.DialogUtils;
-import com.medvid.andriy.housemanager.utils.ImageUtils;
-import com.zzt.inbox.interfaces.OnDragStateChangeListener;
-import com.zzt.inbox.widget.InboxBackgroundScrollView;
-import com.zzt.inbox.widget.InboxLayoutBase;
-import com.zzt.inbox.widget.InboxLayoutScrollView;
-
-import java.net.CookieManager;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -45,46 +34,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     private ActionBar mActionBar = null;
     private DialogUtils mDialogUtils = null;
     private Bitmap bitmap;
-    private Drawable errorIc = null;
-    private ImageUtils mImageUtils = null;
-
-    private OnDragStateChangeListener mEmptyOnDragStateChangeListener
-            = new OnDragStateChangeListener() {
-        @Override
-        public void dragStateChange(InboxLayoutBase.DragState state) {
-            switch (state) {
-                case CANCLOSE:
-                    break;
-                case CANNOTCLOSE:
-                    break;
-            }
-        }
-    };
-
-    //Titles
-    @InjectView(R.id.tv_user_name_settings_title)
-    TextView tv_user_name_settings_title;
-    @InjectView(R.id.tv_password_settings_title)
-    TextView tv_password_settings_title;
-
-    //LL sections
-    @InjectView(R.id.ll_user_name_settings)
-    LinearLayout ll_user_name_settings;
-    @InjectView(R.id.ll_password_settings)
-    LinearLayout ll_password_settings;
-
-    @InjectView(R.id.tv_change_user_name)
-    TextView tv_change_user_name;
-    @InjectView(R.id.et_new_user_name)
-    EditText et_new_user_name;
-
-    @InjectView(R.id.et_enter_new_password)
-    EditText et_enter_new_password;
-
-    @InjectView(R.id.et_confirm_new_password)
-    EditText et_confirm_new_password;
-    @InjectView(R.id.tv_change_user_password)
-    TextView tv_change_user_password;
 
     @InjectView(R.id.btn_sign_out)
     TextView tv_sign_out;
@@ -92,20 +41,11 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     @InjectView(R.id.fl_animation_container)
     FrameLayout fl_animation_container;
 
-    @InjectView(R.id.inboxBackgroundScrollView)
-        InboxBackgroundScrollView inboxBackgroundScrollView;
-
     @InjectView(R.id.tv_user_name_settings_item)
         TextView tv_user_name_settings_item;
 
     @InjectView(R.id.tv_user_password_settings_item)
         TextView tv_user_password_settings_item;
-
-    @InjectView(R.id.inboxlayout_user_name)
-    InboxLayoutScrollView inboxlayout_user_name;
-
-    @InjectView(R.id.inboxlayout_user_password)
-    InboxLayoutScrollView inboxlayout_user_password;
 
     public static SettingsFragment instantiate() {
         return new SettingsFragment();
@@ -129,7 +69,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         mActionBar = mActionBarActivity.getSupportActionBar();
         mActionBar.setTitle(R.string.settings);
         mActionBar.invalidateOptionsMenu();
-        errorIc = mImageUtils.getEditTextErrorDrawable(R.drawable.err_ic);
         initViews();
     }
 
@@ -138,31 +77,13 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         super.onAttach(activity);
         mActionBarActivity = (ActionBarActivity) activity;
         mDialogUtils = new DialogUtils(mActionBarActivity);
-        mImageUtils = new ImageUtils(activity);
     }
 
     private void initViews() {
-
-        //Titles
-        tv_user_name_settings_title.setOnClickListener(this);
-        tv_password_settings_title.setOnClickListener(this);
-
-        tv_change_user_name.setOnClickListener(this);
-        tv_change_user_password.setOnClickListener(this);
         tv_sign_out.setOnClickListener(this);
 
         tv_user_name_settings_item.setOnClickListener(this);
         tv_user_password_settings_item.setOnClickListener(this);
-
-        inboxlayout_user_name.setBackgroundScrollView(inboxBackgroundScrollView);
-        inboxlayout_user_name.setCloseDistance(getResources().
-                getInteger(R.integer.swipe_closing_distance));
-        inboxlayout_user_name.setOnDragStateChangeListener(mEmptyOnDragStateChangeListener);
-
-        inboxlayout_user_password.setBackgroundScrollView(inboxBackgroundScrollView);
-        inboxlayout_user_password.setCloseDistance(getResources().
-                getInteger(R.integer.swipe_closing_distance));
-        inboxlayout_user_password.setOnDragStateChangeListener(mEmptyOnDragStateChangeListener);
     }
 
     @Override
@@ -170,97 +91,30 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         int id = v.getId();
 
         switch (id) {
-            //Titles
-            case R.id.tv_user_name_settings_title:
-                changeVisibility(ll_user_name_settings);
+            case R.id.tv_user_name_settings_item:
+                startEditUserNameScreen();
                 break;
-            case R.id.tv_password_settings_title:
-                changeVisibility(ll_password_settings);
-                break;
-            case R.id.tv_change_user_name:
-                changeUserName();
-                break;
-            case R.id.tv_change_user_password:
-                changeUserPassword();
+            case R.id.tv_user_password_settings_item:
+                startEditUserPasswordScreen();
                 break;
             case R.id.btn_sign_out:
                 mDialogUtils.showSignOutDialog();
                 break;
-            case R.id.tv_user_name_settings_item:
-                inboxlayout_user_name.openWithAnim(tv_user_name_settings_item);
-                break;
-            case R.id.tv_user_password_settings_item:
-                inboxlayout_user_password.openWithAnim(tv_user_password_settings_item);
-                break;
         }
     }
 
-    private void changeUserName()   {
-        String userName = et_new_user_name.getText().toString();
-        if(validateInput(userName)) {
-            //Saving user name actions
-            String toastMessage = null;
-            if(CookiesManager.updateUserName(userName)) {
-                toastMessage = mActionBarActivity.
-                        getString(R.string.user_name_changed_successfully);
-            }   else    {
-                toastMessage = mActionBarActivity.
-                        getString(R.string.user_name_changed_successfully);
-            }
-            Toast.makeText(mActionBarActivity, toastMessage, Toast.LENGTH_LONG).show();
-        }
+    private void startEditUserPasswordScreen() {
+        Intent intent = new Intent(mActionBarActivity, EditProfileActivity.class);
+        intent.putExtra(EditProfileActivity.EXTRA_PROFILE_EDITING_TYPE,
+                EditProfileActivity.EDIT_USER_PASSWORD);
+        startActivity(intent);
     }
 
-    private void changeUserPassword()   {
-        String password = et_enter_new_password.getText().toString();
-        String confirmPassword = et_confirm_new_password.getText().toString();
-        if(validateInput(password, confirmPassword))    {
-            //Saving password actions
-            String toastMessage = null;
-            if(CookiesManager.updateUserName(password)) {
-                toastMessage = mActionBarActivity.
-                        getString(R.string.user_password_changed_successfully);
-            }   else    {
-                toastMessage = mActionBarActivity.
-                        getString(R.string.user_password_changing_failed);
-            }
-            Toast.makeText(mActionBarActivity, toastMessage, Toast.LENGTH_LONG).show();;
-        }
-    }
-
-    private boolean validateInput(String userName) {
-        boolean validationSuccess = true;
-        if(userName.isEmpty())  {
-            validationSuccess = false;
-            et_new_user_name.setError(getString(R.string.please_enter_user_name), errorIc);
-        }
-        return validationSuccess;
-    }
-
-    private boolean validateInput(String password, String confirmPassword) {
-        boolean validationSuccess = true;
-        if(password.isEmpty())  {
-            validationSuccess = false;
-            et_enter_new_password.setError(getString(R.string.please_enter_user_password), errorIc);
-        }
-
-        if(confirmPassword.isEmpty())  {
-            validationSuccess = false;
-            et_confirm_new_password.setError(getString(R.string.please_confirm_password), errorIc);
-        }   else if(!confirmPassword.equals(password))  {
-            validationSuccess = false;
-            et_confirm_new_password.setError(getString(R.string.confirm_password_must_be_repeated_exactly), errorIc);
-        }
-        return validationSuccess;
-    }
-
-
-    private void changeVisibility(View view) {
-        if (view.getVisibility() == View.VISIBLE) {
-            view.setVisibility(View.GONE);
-        } else if (view.getVisibility() == View.GONE) {
-            view.setVisibility(View.VISIBLE);
-        }
+    private void startEditUserNameScreen() {
+        Intent intent = new Intent(mActionBarActivity, EditProfileActivity.class);
+        intent.putExtra(EditProfileActivity.EXTRA_PROFILE_EDITING_TYPE,
+                EditProfileActivity.EDIT_USER_NAME);
+        startActivity(intent);
     }
 
     @Override

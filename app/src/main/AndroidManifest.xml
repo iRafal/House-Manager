@@ -96,6 +96,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/VoiceControlInfoScreenTheme"
             android:parentActivityName=".activity.MainActivity" />
+
+        <activity
+            android:name=".activity.EditProfileActivity"
+            android:label="@string/edit_profile"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditProfileScreenTheme"
+            android:parentActivityName=".activity.MainActivity" />
+
     </application>
 
 </manifest>

@@ -46,7 +46,10 @@
 
     <style name="VoiceControlInfoScreenTheme" parent="SliderActionBarTheme">
         <item name="android:homeAsUpIndicator">@drawable/ic_back_arrow_light</item>
+    </style>
 
+    <style name="EditProfileScreenTheme" parent="SliderActionBarTheme">
+        <item name="android:homeAsUpIndicator">@drawable/ic_back_arrow_light</item>
     </style>
 
     <style name="EditText_Style" parent="@android:style/Widget.EditText">

@@ -1,1 +1,1 @@
-include ':app', ':InboxLayoutLibrary'
+include ':app'
