@@ -38,18 +38,19 @@
             fab:fab_colorNormal="@color/floating_button_color_normal"
             fab:fab_colorRipple="@color/floating_button_color_pressed" />
 
-            <TextView
-                android:id="@+id/tv_command_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/edge_huge_plus"
-                android:layout_gravity="center|top"
-                android:background="@null"
-                android:padding="@dimen/edge_normal_medium_plus"
-                android:text="@string/witing_for_command"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_medium"
-                android:visibility="invisible" />
+        <TextView
+            android:id="@+id/tv_command_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="@dimen/edge_huge_plus"
+            android:gravity="center"
+            android:background="@null"
+            android:padding="@dimen/edge_normal_medium_plus"
+            android:text="@string/witing_for_command"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_medium"
+            android:visibility="invisible" />
     </FrameLayout>
 
 </LinearLayout>

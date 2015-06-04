@@ -9,8 +9,8 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import github.chenupt.springindicator.SpringIndicator;
 import github.chenupt.springindicator.viewpager.ScrollerViewPager;
-import multiplemodel.viewpager.ModelPagerAdapter;
-import multiplemodel.viewpager.PagerManager;
+import com.medvid.andriy.housemanager.multiplemodel.viewpager.ModelPagerAdapter;
+import com.medvid.andriy.housemanager.multiplemodel.viewpager.PagerManager;
 
 
 public class TutorialActivity extends BaseActivity {

@@ -50,7 +50,7 @@ dependencies {
     //Swipe indicator
     compile 'com.github.chenupt.android:springindicator:1.0.1@aar'
     //Swipe MultipleModel
-    //compile 'com.github.chenupt.android:multiplemodel:1.2.0-SNAPSHOT@aar'
+    //compile 'com.github.chenupt.android:com.medvid.andriy.housemanager.multiplemodel:1.2.0-SNAPSHOT@aar'
 
     //Float Label Edit text
     compile 'com.wrapp.floatlabelededittext:library:0.0.6'
@@ -81,5 +81,4 @@ dependencies {
     compile 'com.github.rey5137:material:1.1.0'
 
     compile 'com.google.code.gson:gson:1.7.2'
-
 }
