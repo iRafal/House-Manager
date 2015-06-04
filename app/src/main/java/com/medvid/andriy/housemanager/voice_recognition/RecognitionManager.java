@@ -139,10 +139,11 @@ public class RecognitionManager implements RecognitionListener {
 
                 mRecognitionListener.onCommandRecognized(mRecognizedString);
                 pauseRecognition();
-                mRecognitionListener.onRecognitionFinished(mRecognizedString);
+                mRecognitionListener.onRecognitionFinished(new String(mRecognizedString));
+                showLog("recognized text = " + mRecognizedString);
+                mRecognizedString = null;
             }
         }
-        showLog("recognized text = " + mRecognizedString);
     }
 
     @Override
