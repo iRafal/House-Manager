@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.medvid.andriy.housemanager.R;
 import com.medvid.andriy.housemanager.activity.VoiceControlInfoActivity;
+import com.medvid.andriy.housemanager.utils.AudioUtils;
 import com.medvid.andriy.housemanager.utils.DialogUtils;
 import com.medvid.andriy.housemanager.utils.ImageUtils;
 import com.medvid.andriy.housemanager.voice_recognition.RecognitionManager;
@@ -96,17 +97,11 @@ public class VoiceControlFragment extends Fragment
 
     private List<String> getList()  {
         List<String> commandsList = new ArrayList<>();
-        commandsList.add("switch on the lamp");
-        commandsList.add("switch off the lamp");
+        commandsList.add("turn on the lamp");
+        commandsList.add("turn off the lamp");
 
-        commandsList.add("switch on thermometer");
-        commandsList.add("switch off thermometer");
-
-        commandsList.add("switch on conditioner");
-        commandsList.add("switch off conditioner");
-
-        commandsList.add("switch on chandelier");
-        commandsList.add("switch off chandelier");
+        commandsList.add("turn on device");
+        commandsList.add("turn off device");
 
         return commandsList;
     }
@@ -120,6 +115,20 @@ public class VoiceControlFragment extends Fragment
     public void onDestroy() {
         super.onDestroy();
         mRecognitionManager.stopRecognition();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mRecognitionManager.pauseRecognition();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if(mRippleBackground.isRippleAnimationRunning())  {
+            mRecognitionManager.startRecognition();
+        }
     }
 
     @Override
@@ -201,8 +210,9 @@ public class VoiceControlFragment extends Fragment
         onRippleAction();
         String lastCommand = mActionBarActivity.getString(R.string.last_command);
         String newTitle = String.format("%s:\n\"%s\"", lastCommand, tv_command_title.getText());
-
         tv_command_title.setText(newTitle);
+
+        AudioUtils.startPipTone(getResources().getInteger(R.integer.tone_duration));
 
         String title = mActionBarActivity.getString(R.string.executing_command);
         String message = String.format("\"%s\"", command);

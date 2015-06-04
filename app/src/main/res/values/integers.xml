@@ -4,4 +4,5 @@
     <integer name="ripple_amount">6</integer>
     <integer name="ripple_scale">6</integer>
     <integer name="swipe_closing_distance">50</integer>
+    <integer name="tone_duration">200</integer>
 </resources>

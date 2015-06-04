@@ -133,7 +133,6 @@ public class RecognitionManager implements RecognitionListener {
     @Override
     public void onEndOfSpeech() {
         showLog("onEndOfSpeech");
-        //restartRecognition();
 
         if (mRecognitionListener != null) {
             if(mRecognizedString!=null && mCommandsList.contains(mRecognizedString)) {
@@ -141,29 +140,14 @@ public class RecognitionManager implements RecognitionListener {
                 mRecognitionListener.onCommandRecognized(mRecognizedString);
                 pauseRecognition();
                 mRecognitionListener.onRecognitionFinished(mRecognizedString);
-                //restartRecognition();
             }
         }
-        showLog("text = " + mRecognizedString);
+        showLog("recognized text = " + mRecognizedString);
     }
 
     @Override
     public void onResult(Hypothesis hypothesis) {
         showLog("onResult");
-
-        /*if (hypothesis != null) {
-            String text = hypothesis.getHypstr();
-
-            if (mRecognitionListener != null) {
-                if(mCommandsList.contains(text)) {
-                    mRecognitionListener.onCommandRecognized(text);
-                    pauseRecognition();
-                    mRecognitionListener.onRecognitionFinished(text);
-                    //restartRecognition();
-                }
-            }
-            showLog("text = " + text);
-        }*/
     }
 
     @Override
@@ -173,8 +157,6 @@ public class RecognitionManager implements RecognitionListener {
 
     @Override
     public void onTimeout() {
-        showLog("onTimeout");
-        restartRecognition();
     }
 
     private void initRecognition() {
@@ -229,5 +211,9 @@ public class RecognitionManager implements RecognitionListener {
         public void onInitializationFinished();
         public void onCommandRecognized(String command);
         public void onRecognitionFinished(String command);
+    }
+
+    public boolean isVoiceRecognitionPaused()  {
+        return mIsRecognitionPaused;
     }
 }
