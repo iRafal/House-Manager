@@ -1,6 +1,7 @@
 package com.medvid.andriy.housemanager.fragments;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -16,9 +17,15 @@ import android.widget.TextView;
 
 import com.medvid.andriy.housemanager.R;
 import com.medvid.andriy.housemanager.activity.VoiceControlInfoActivity;
+import com.medvid.andriy.housemanager.utils.AudioUtils;
+import com.medvid.andriy.housemanager.utils.DialogUtils;
 import com.medvid.andriy.housemanager.utils.ImageUtils;
+import com.medvid.andriy.housemanager.voice_recognition.RecognitionManager;
 import com.melnykov.fab.FloatingActionButton;
 import com.skyfishjy.library.RippleBackground;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -27,7 +34,9 @@ import yalantis.com.sidemenu.interfaces.ScreenShotable;
 /**
  * Created by Андрій on 5/4/2015.
  */
-public class VoiceControlFragment extends Fragment implements ScreenShotable, View.OnClickListener {
+public class VoiceControlFragment extends Fragment
+        implements ScreenShotable, View.OnClickListener,
+        RecognitionManager.OnCommandRecognizedListener {
 
     public static final String VOICE_CONTROL_SCREEN = "Voice Control";
 
@@ -35,6 +44,9 @@ public class VoiceControlFragment extends Fragment implements ScreenShotable, Vi
     private ActionBar mActionBar = null;
     private View mFragmentView = null;
     private ImageUtils mImageUtils = null;
+
+    private DialogUtils mDialogUtils = null;
+    private RecognitionManager mRecognitionManager = null;
 
     @InjectView(R.id.floating_button)
         FloatingActionButton floating_button;
@@ -45,15 +57,30 @@ public class VoiceControlFragment extends Fragment implements ScreenShotable, Vi
     @InjectView(R.id.tv_command_title)
         TextView tv_command_title;
 
+    private ProgressDialog mScreenInitializingDialog = null;
+    private ProgressDialog mExecutingCommandDialog = null;
+
     public static VoiceControlFragment instantiate()    {
         return new VoiceControlFragment();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,
+                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mFragmentView = inflater.inflate(R.layout.voice_control_screen_layout, container, false);
         ButterKnife.inject(this, mFragmentView);
         return mFragmentView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        String title = mActionBarActivity.getString(R.string.voice_recognition);
+        String message = mActionBarActivity.getString(R.string.initialization);
+
+        mScreenInitializingDialog = mDialogUtils.getProgressDialog(title, message, true, false);
+        mScreenInitializingDialog.show();
     }
 
     @Override
@@ -64,6 +91,19 @@ public class VoiceControlFragment extends Fragment implements ScreenShotable, Vi
         mActionBar.invalidateOptionsMenu();
 
         initViews();
+
+        mRecognitionManager = new RecognitionManager(mActionBarActivity, getList(), this);
+    }
+
+    private List<String> getList()  {
+        List<String> commandsList = new ArrayList<>();
+        commandsList.add("turn on the lamp");
+        commandsList.add("turn off the lamp");
+
+        commandsList.add("turn on device");
+        commandsList.add("turn off device");
+
+        return commandsList;
     }
 
     private void initViews()    {
@@ -72,15 +112,35 @@ public class VoiceControlFragment extends Fragment implements ScreenShotable, Vi
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mRecognitionManager.stopRecognition();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mRecognitionManager.pauseRecognition();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if(mRippleBackground.isRippleAnimationRunning())  {
+            mRecognitionManager.startRecognition();
+        }
+    }
+
+    @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mActionBarActivity = (ActionBarActivity)activity;
         mImageUtils = new ImageUtils(activity);
+        mDialogUtils = new DialogUtils(activity);
     }
 
     @Override
     public void takeScreenShot() {
-
     }
 
     @Override
@@ -103,7 +163,8 @@ public class VoiceControlFragment extends Fragment implements ScreenShotable, Vi
     }
 
     private void startVoiceControlInfoScreen() {
-        Intent voiceControlInfoActivityIntent = new Intent(mActionBarActivity, VoiceControlInfoActivity.class);
+        Intent voiceControlInfoActivityIntent =
+                new Intent(mActionBarActivity, VoiceControlInfoActivity.class);
         mActionBarActivity.startActivity(voiceControlInfoActivityIntent);
     }
 
@@ -121,13 +182,41 @@ public class VoiceControlFragment extends Fragment implements ScreenShotable, Vi
             tv_command_title.setVisibility(View.VISIBLE);
             iv_center_image.setImageDrawable(
                     mImageUtils.getDrawableFromResource(R.drawable.microphone_white));
+
+            mRecognitionManager.startRecognition();
+
         }   else    {
             mRippleBackground.stopRippleAnimation();
-            tv_command_title.setVisibility(View.INVISIBLE);
             iv_center_image.setImageDrawable(
                     mImageUtils.getDrawableFromResource(R.drawable.microphone_black));
+            mRecognitionManager.pauseRecognition();
         }
 
         toggleFloatingActionButton();
+    }
+
+    @Override
+    public void onInitializationFinished() {
+        mScreenInitializingDialog.hide();
+    }
+
+    @Override
+    public void onCommandRecognized(String command) {
+        tv_command_title.setText(command);
+    }
+
+    @Override
+    public void onRecognitionFinished(String command) {
+        onRippleAction();
+        String lastCommand = mActionBarActivity.getString(R.string.last_command);
+        String newTitle = String.format("%s:\n\"%s\"", lastCommand, tv_command_title.getText());
+        tv_command_title.setText(newTitle);
+
+        AudioUtils.startPipTone(getResources().getInteger(R.integer.tone_duration));
+
+        String title = mActionBarActivity.getString(R.string.executing_command);
+        String message = String.format("\"%s\"", command);
+        mExecutingCommandDialog = mDialogUtils.getProgressDialog(title, message);
+        mExecutingCommandDialog.show();
     }
 }

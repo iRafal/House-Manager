@@ -100,6 +100,10 @@
     <string name="tutorial_page_2_description">Create and manage accounts for independent control.</string>
     <string name="tutorial_page_3_description">Manage every single device. Easy get stored information.</string>
     <string name="tutorial_page_4_description">Use voice control possibilities for quick setup.</string>
+    <string name="last_command">Last command</string>
+    <string name="executing_command">Executing command</string>
+    <string name="initialization">Initialization...</string>
+    <string name="voice_recognition">Voice recognition</string>
 
 </resources>
 

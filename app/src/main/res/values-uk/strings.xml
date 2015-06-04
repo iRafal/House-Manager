@@ -100,6 +100,10 @@
     <string name="tutorial_page_2_description">Створюєйте та редагуйте облікові записи для незалежного керування.</string>
     <string name="tutorial_page_3_description">Керуйте кожним приладом окремо. Легко отримуйте збережену інформацію.</string>
     <string name="tutorial_page_4_description">Використовуйте можливості голосових команд для миттєвих налаштувань.</string>
+    <string name="last_command">Остання команда</string>
+    <string name="executing_command">Виконання команди</string>
+    <string name="initialization">Ініціалізація...</string>
+    <string name="voice_recognition">Голосове розпізнавання</string>
 
 </resources>
 

@@ -41,17 +41,11 @@ public class VoiceControlInfoActivity extends BaseActivity {
     private List<String> initCommandsList()  {
         List<String> commandsList = new ArrayList<>();
 
-        commandsList.add("Switch on the Lamp");
-        commandsList.add("Switch off the Lamp");
+        commandsList.add("turn on the lamp");
+        commandsList.add("turn off the lamp");
 
-        commandsList.add("Switch on thermometer");
-        commandsList.add("Switch off thermometer");
-
-        commandsList.add("Switch on conditioner");
-        commandsList.add("Switch off conditioner");
-
-        commandsList.add("Switch on chandelier");
-        commandsList.add("Switch off chandelier");
+        commandsList.add("turn on device");
+        commandsList.add("turn off device");
 
         return commandsList;
     }
