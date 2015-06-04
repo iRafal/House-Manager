@@ -396,16 +396,6 @@ public class MeasurementStatisticActivity extends BaseActivity implements View.O
         tv_second_date_selector.setEnabled(!isSingleDate);
     }
 
-    private void showToast(String toastMessage, int toastLength) {
-        Toast.makeText(MeasurementStatisticActivity.this,
-                toastMessage, toastLength).show();
-    }
-
-    private void showToast(int messageResId, int toastLength) {
-        String message = getString(messageResId);
-        showToast(message, toastLength);
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 

@@ -237,7 +237,7 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
         }
 
         mDoubleBackToExitPressedOnce = true;
-        Toast.makeText(this, getString(R.string.on_back_tap_message), Toast.LENGTH_SHORT).show();
+        showToast(R.string.on_back_tap_message, Toast.LENGTH_LONG);
 
         runDelay(ON_BACK_PRESS_TIME_DELAY);
     }

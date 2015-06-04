@@ -113,10 +113,10 @@ public class LineChartActivity extends BaseActivity implements OnChartValueSelec
     private void saveToGallery() {
         if (line_chart.saveToGallery(getString(R.string.line_chart)
                 + " " + System.currentTimeMillis(), 50)) {
-            Toast.makeText(this, getString(R.string.saved_to_gallery),
-                    Toast.LENGTH_SHORT).show();
-        } else
-            Toast.makeText(this, getString(R.string.saving_to_gallery_failed), Toast.LENGTH_SHORT).show();
+            showToast(R.string.saved_to_gallery, Toast.LENGTH_LONG);
+        } else {
+            showToast(R.string.saving_to_gallery_failed, Toast.LENGTH_LONG);
+        }
     }
 
     @Override

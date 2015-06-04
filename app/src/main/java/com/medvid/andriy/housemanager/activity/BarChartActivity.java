@@ -104,10 +104,10 @@ public class BarChartActivity extends BaseActivity implements SeekBar.OnSeekBarC
     private void saveToGallery() {
         if (bar_chart_view.saveToGallery(getString(R.string.bar_chart)
                 + " " + System.currentTimeMillis(), 50)) {
-            Toast.makeText(this, getString(R.string.saved_to_gallery),
-                    Toast.LENGTH_SHORT).show();
-        } else
-            Toast.makeText(this, getString(R.string.saving_to_gallery_failed), Toast.LENGTH_SHORT).show();
+            showToast(R.string.saved_to_gallery, Toast.LENGTH_SHORT);
+        } else {
+            showToast(R.string.saving_to_gallery_failed, Toast.LENGTH_SHORT);
+        }
     }
 
     @Override

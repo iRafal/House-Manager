@@ -2,6 +2,7 @@ package com.medvid.andriy.housemanager.activity;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -132,7 +133,7 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             }   else    {
                 toastMessage = getString(R.string.user_password_changing_failed);
             }
-            Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();;
+            showToast(toastMessage, Toast.LENGTH_LONG);
         }
     }
 
@@ -155,7 +156,18 @@ public class EditProfileActivity extends BaseActivity implements View.OnClickLis
             }   else    {
                 toastMessage = getString(R.string.user_name_changed_successfully);
             }
-            Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
+            showToast(toastMessage, Toast.LENGTH_LONG);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                break;
+        }
+        return true;
     }
 }

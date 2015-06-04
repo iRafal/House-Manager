@@ -72,8 +72,7 @@
             android:name=".activity.MeasurementStatisticActivity"
             android:label="@string/measurement_statistic"
             android:screenOrientation="portrait"
-            android:theme="@style/DeviceScreenTheme"
-            android:parentActivityName=".activity.DeviceActivity" />
+            android:theme="@style/DeviceScreenTheme" />
 
         <activity
             android:name=".activity.BarChartActivity"
@@ -101,8 +100,7 @@
             android:name=".activity.EditProfileActivity"
             android:label="@string/edit_profile"
             android:screenOrientation="portrait"
-            android:theme="@style/EditProfileScreenTheme"
-            android:parentActivityName=".activity.MainActivity" />
+            android:theme="@style/EditProfileScreenTheme" />
 
     </application>
 

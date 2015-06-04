@@ -17,7 +17,7 @@
     <string name="voice_control">Voice Control</string>
     <string name="entry_screen">Entry Screen</string>
     <string name="password">Password</string>
-    <string name="on_back_tap_message">Please tap BACK again to exit</string>
+    <string name="on_back_tap_message">Press again to exit</string>
     <string name="made_by_string">Made by\nVI year study student</string>
     <string name="developer_name">Andriy Medvid</string>
     <string name="department_string">Department of\nComputer Aided Design</string>

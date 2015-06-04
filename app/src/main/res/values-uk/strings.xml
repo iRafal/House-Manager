@@ -17,7 +17,7 @@
     <string name="voice_control">Голосове керування</string>
     <string name="entry_screen">Початковий екран</string>
     <string name="password">Пароль</string>
-    <string name="on_back_tap_message">Натисніть ще раз Назад, щоб виходу</string>
+    <string name="on_back_tap_message">Натисніть ще раз, щоб вийти</string>
     <string name="made_by_string">Зроблено\nстудентом VI курсу</string>
     <string name="developer_name">Andriy Medvid</string>
     <string name="department_string">Кафедра\nСистем автоматизованоо проектування</string>
@@ -52,8 +52,8 @@
     <string name="from_time">Час з</string>
     <string name="please_select_first_time">Вкажіть Перший час</string>
     <string name="single_time">Один час</string>
-    <string name="please_select_second_date">Вкажіть Першу дату</string>
-    <string name="please_select_second_time">Вкажіть Другу дату</string>
+    <string name="please_select_second_date">Вкажіть Другу дату</string>
+    <string name="please_select_second_time">Вкажіть Другий час</string>
     <string name="bar_chart">Гістограма</string>
     <string name="line_chart">Лінійний графік</string>
     <string name="room">Кімната</string>
