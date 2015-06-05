@@ -41,7 +41,8 @@ import yalantis.com.sidemenu.model.SlideMenuItem;
 import yalantis.com.sidemenu.util.ViewAnimator;
 
 
-public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnimatorListener, ScreenShotable {
+public class MainActivity extends BaseActivity
+        implements ViewAnimator.ViewAnimatorListener, ScreenShotable {
 
     private static final String CLOSE = "Close";
     private static final int ON_BACK_PRESS_TIME_DELAY = 2000;
@@ -133,15 +134,24 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
     }
 
     private void createMenuList() {
-        SlideMenuItem menuItem0 = new SlideMenuItem(CLOSE, R.drawable.cross_white);
+        SlideMenuItem menuItem0 = new SlideMenuItem(CLOSE, R.drawable.cross_white,
+                R.drawable.top_menu_item);
         list.add(menuItem0);
-        SlideMenuItem menuItem = new SlideMenuItem(DevicesListFragment.DEVICES_SCREEN, R.drawable.ic_device);
+
+        SlideMenuItem menuItem = new SlideMenuItem(DevicesListFragment.DEVICES_SCREEN,
+                R.drawable.ic_device, R.drawable.central_menu_item);
         list.add(menuItem);
-        SlideMenuItem menuItem2 = new SlideMenuItem(VoiceControlFragment.VOICE_CONTROL_SCREEN, R.drawable.ic_microphone_white);
+
+        SlideMenuItem menuItem2 = new SlideMenuItem(VoiceControlFragment.VOICE_CONTROL_SCREEN,
+                R.drawable.ic_microphone_white, R.drawable.central_menu_item);
         list.add(menuItem2);
-        SlideMenuItem menuItem3 = new SlideMenuItem(SettingsFragment.SETTINGS_SCREEN, R.drawable.ic_settings);
+
+        SlideMenuItem menuItem3 = new SlideMenuItem(SettingsFragment.SETTINGS_SCREEN,
+                R.drawable.ic_settings, R.drawable.central_menu_item);
         list.add(menuItem3);
-        SlideMenuItem menuItem4 = new SlideMenuItem(AboutFragment.ABOUT_SCREEN, R.drawable.ic_info);
+
+        SlideMenuItem menuItem4 = new SlideMenuItem(AboutFragment.ABOUT_SCREEN,
+                R.drawable.ic_info, R.drawable.bottom_menu_item);
         list.add(menuItem4);
     }
 
@@ -203,22 +213,26 @@ public class MainActivity extends BaseActivity implements ViewAnimator.ViewAnima
 
         int finalRadius = Math.max(contentView.getWidth(), contentView.getHeight());
 
-        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(contentView, 0, topPosition, 0, finalRadius);
+        SupportAnimator animator = ViewAnimationUtils.
+                createCircularReveal(contentView, 0, topPosition, 0, finalRadius);
         animator.setInterpolator(new AccelerateInterpolator());
         animator.setDuration(ViewAnimator.CIRCULAR_REVEAL_ANIMATION_DURATION);
 
         View content_overlay = ButterKnife.findById(this, R.id.content_overlay);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-            content_overlay.setBackgroundDrawable(new BitmapDrawable(getResources(), screenShotable.getBitmap()));
+            content_overlay.setBackgroundDrawable(new BitmapDrawable(getResources(),
+                    screenShotable.getBitmap()));
         } else {
-            content_overlay.setBackground(new BitmapDrawable(getResources(), screenShotable.getBitmap()));
+            content_overlay.setBackground(new BitmapDrawable(getResources(),
+                    screenShotable.getBitmap()));
         }
 
         animator.start();
 
         Fragment content = (Fragment) screenShotable;
-        getSupportFragmentManager().beginTransaction().replace(R.id.activity_content_frame, content).commit();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.activity_content_frame, content).commit();
         return screenShotable;
     }
 
