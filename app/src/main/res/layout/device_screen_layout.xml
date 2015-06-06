@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue_green"
+    android:background="@color/input_screens_background"
     android:orientation="vertical"
     android:padding="@dimen/edge_big_minus"
     tools:context=".DeviceActivity">
@@ -19,9 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:text="Device"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_large"
-            android:textStyle="bold" />
+            android:textColor="@color/green_dark_plus"
+            android:textSize="@dimen/text_large" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -34,8 +33,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/on"
-                android:textSize="@dimen/text_medium"
-                android:textStyle="bold" />
+                android:textColor="@color/green_dark_plus"
+                android:textSize="@dimen/text_medium" />
 
             <com.rey.material.widget.Switch
                 android:id="@+id/switch_status"
@@ -51,8 +50,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/edge_tiny"
-        android:background="@color/white"/>
-
+        android:background="@color/gray_brighter"/>
 
     <TableLayout
         android:id="@+id/hided_panel"
@@ -68,9 +66,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/green_dark_plus"
                 android:text="@string/model"
-                android:textSize="@dimen/text_medium"
-                android:textStyle="bold" />
+                android:textSize="@dimen/text_medium" />
 
             <TextView
                 android:id="@+id/tv_device_model"
@@ -78,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:singleLine="true"
-                android:textColor="@color/gray_devices_screen_text"
+                android:textColor="@color/status_bar_gray"
                 android:paddingLeft="@dimen/edge_above"
                 android:textSize="@dimen/text_almost_large" />
         </TableRow>
@@ -92,8 +90,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/type"
-                android:textSize="@dimen/text_medium"
-                android:textStyle="bold" />
+                android:textColor="@color/green_dark_plus"
+                android:textSize="@dimen/text_medium" />
 
             <TextView
                 android:id="@+id/tv_device_type"
@@ -102,7 +100,7 @@
                 android:layout_weight="1"
                 android:singleLine="true"
                 android:paddingLeft="@dimen/edge_above"
-                android:textColor="@color/gray_devices_screen_text"
+                android:textColor="@color/status_bar_gray"
                 android:textSize="@dimen/text_almost_large" />
         </TableRow>
 
@@ -115,8 +113,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/room"
-                android:textSize="@dimen/text_medium"
-                android:textStyle="bold" />
+                android:textColor="@color/green_dark_plus"
+                android:textSize="@dimen/text_medium" />
 
             <TextView
                 android:id="@+id/tv_device_room"
@@ -124,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:singleLine="true"
-                android:textColor="@color/gray_devices_screen_text"
+                android:textColor="@color/status_bar_gray"
                 android:paddingLeft="@dimen/edge_above"
                 android:textSize="@dimen/text_almost_large" />
         </TableRow>
@@ -139,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/is_busy"
                 android:textSize="@dimen/text_medium"
-                android:textStyle="bold" />
+                android:textColor="@color/green_dark_plus" />
 
             <TextView
                 android:id="@+id/tv_device_is_busy"
@@ -147,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:singleLine="true"
-                android:textColor="@color/gray_devices_screen_text"
+                android:textColor="@color/status_bar_gray"
                 android:paddingLeft="@dimen/edge_above"
                 android:textSize="@dimen/text_almost_large" />
         </TableRow>
