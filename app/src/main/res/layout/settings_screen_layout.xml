@@ -25,7 +25,7 @@
                 android:gravity="left"
                 android:padding="@dimen/edge_big"
                 android:text="@string/user_name"
-                android:textColor="@color/status_bar_gray"
+                android:textColor="@color/green_dark_plus"
                 android:textSize="@dimen/text_normal_medium" />
 
             <View
@@ -45,7 +45,7 @@
                 android:gravity="left"
                 android:padding="@dimen/edge_big"
                 android:text="@string/change_user_password"
-                android:textColor="@color/status_bar_gray"
+                android:textColor="@color/green_dark_plus"
                 android:textSize="@dimen/text_normal_medium" />
 
             <View
