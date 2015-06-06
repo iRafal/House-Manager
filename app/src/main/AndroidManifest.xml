@@ -72,7 +72,8 @@
             android:name=".activity.MeasurementStatisticActivity"
             android:label="@string/measurement_statistic"
             android:screenOrientation="portrait"
-            android:theme="@style/DeviceScreenTheme" />
+            android:theme="@style/MeasurementStatisticScreenTheme"
+            android:parentActivityName=".activity.DeviceActivity"/>
 
         <activity
             android:name=".activity.BarChartActivity"
